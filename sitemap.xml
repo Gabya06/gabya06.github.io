@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://gabya06.github.io/</loc>
+         <lastmod>2024-08-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://gabya06.github.io/ensemble/readme/</loc>
+         <lastmod>2024-08-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://gabya06.github.io/genre_predictions/readme/</loc>
+         <lastmod>2024-08-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://gabya06.github.io/glassdoor_reviews/readme/</loc>
+         <lastmod>2024-08-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>
