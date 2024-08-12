@@ -1,1 +1,18 @@
-site_name: My Docs
+site_name: Gaby's Data Science Portfolio
+site_url: https://gabya06.github.io/
+site_author: Gaby Agrocostea
+# Repository: necessary to display the repo on the top right corner
+repo_name: gabya06/gabya06.github.io
+repo_url: https://github.com/gabya06/gabya06.github.io
+
+# Configuration
+theme:
+  name: material
+# Page tree: refer to mkdocs documentation
+nav:
+- Home: index.md
+- Current project:
+  - "Sentiment Analysis on Glassodoor Reviews": glassdoor_reviews/readme.md
+- Previous data science projects:
+  - "Predicting Movie Genres using Machine Learning": genre_predictions/readme.md
+  - "Ensemble Models for Price Forecasting": ensemble/readme.md
