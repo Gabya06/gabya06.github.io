@@ -7,7 +7,7 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 I'm a data scientist, instructor and mentor. During my free time, I teach data science, python, machine learning and SQL to beginner and advanced students as a consultant. 
 
 
-I enjoy writing blogs about latest developments in data science and machine learning, sharing insights from my current and past projects, and discussing my experiences in teaching and mentoring. Sharing knowledge with others is a passion of mine! You can find my blog posts on [medium.com/@gabya06](www.medium.com/@gabya06) 
+I enjoy writing blogs about latest developments in data science and machine learning, sharing insights from my current and past projects, and discussing my experiences in teaching and mentoring. Sharing knowledge with others is a passion of mine! You can find my blog posts on [medium.com/gabya06](https://medium.com/@gabya06) 
 
 ## Current Projects
 The project I am currently working on
