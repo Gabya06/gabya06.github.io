@@ -19,7 +19,7 @@
         <link rel="next" href="../../ensemble/readme/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../images/selfie_2023.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
@@ -670,7 +670,34 @@
 
 <p>The reason for this is that we don't want our model to use words or numbers that are not important in predicting a show's genre. For example, we remove words such as "a", "the", "it" (referred to as stop words) because they will not provide any important information in our predicting task.</p>
 <p>In the below example, I used the NLTK library to perform some of the preprocessing steps mentioned above. The NLTK library is very useful when you are working with natural language; it contains many algorithms which make preprocessing a lot easier.</p>
-<p><img alt="code_1" src="../code_1.png" /></p>
+<pre><code class="language-python">from nltk.corpus import stopwords
+from nltk import RegexTokenizer
+
+def tokenize_overview(mydata, overview_col):
+    &quot;&quot;&quot;
+    Function to clean show overview
+
+    Returns:
+    --------
+    Return each row as a list of tokens
+    &quot;&quot;&quot;
+    # removes punctuation
+    tokenizer = RegexpTokenizer(r&quot;\w+&quot;)
+    stop_words = stopwords.words(&quot;English&quot;)
+
+    # split text
+    tokens = mydata[overview_col].map(lambda x: tokenizer.tokenize(x))
+    # strip white spaces &amp; lower case
+    tokens = tokens.map(lambda x: [i.lower().strip(&quot;_&quot;) for i in x])
+    # remove stop words
+    tokens = tokens.map(lambda x: [i for i in x if i not in stop_words])
+    # remove empty strings
+    tokens = tokens.map(lambda x: [i for i in x if i != ''])
+
+    return tokens
+
+
+</code></pre>
 <p>A quick look at the data shows that each row in the tokens column contains a list of words:
 <img alt="df_1" src="../df_1.png" /></p>
 <h3 id="tfidf-vectorization-term-frequency-inverse-document-frequency">TFIDF Vectorization (Term Frequency-Inverse Document Frequency)</h3>
@@ -687,21 +714,42 @@
 </ul>
 <hr />
 <p>Calculating this by hand seems daunting, but using Tf-Idf from the scikit-learn library is actually quite straightforward! We simply fit the vectorizer on our training corpus after importing and calling the vectorizer. In general, we refer to our text data in NLP problems as corpus/training corpus.</p>
-<p><img alt="code_2" src="../code_2.png" /></p>
+<pre><code class="language-python"># import TF-IDF
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+# Tf-Idf vectorizer
+tf_vec = TfidfVectorizer()
+# fit vectorizer on corpus
+tf_vec.fit(train_corpus)
+</code></pre>
 <p>Next, we transform our corpus to tf-idf representation. This is just one line of code and this happens after we have done our data cleaning.</p>
-<p><img alt="code_3" src="../code_3.png" /></p>
-<p>We can double check our new training dataset and see that it is now a sparse matrix with numeric datatype:
-<img alt="code_4" src="../code_4.png" /></p>
-<p>If we wanted to see the features and vocabulary based on the corpus:
-<img alt="code_5" src="../code_5.png" /></p>
+<pre><code class="language-python"># transform corpus to tfidf representation
+X_train = tf_vec.transform(train_corpus)
+</code></pre>
+<p>We can double check our new training dataset and see that it is now a sparse matrix with numeric datatype
+<img alt="code_14" src="../code_14.png" /></p>
+<p>If we wanted to see the features and vocabulary based on the corpus:</p>
+<pre><code class="language-python"># get vocabulary
+dic_vocab = tf_vec.vocabulary_
+</code></pre>
 <p><img alt="code_6" src="../code_6.png" /></p>
 <p>If we wanted to see all of the feature names:
 <img alt="code_7" src="../code_7.png" /></p>
 <h4 id="and-finally-model-training"><em><em>And Finally ...  Model Training ...</em></em></h4>
 <p>After the data cleaning and vectorization, we can finally fit a Naive Bayes model in a few lines of code. We can make use of <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html">Pipeline</a> to pass in the fit vectorizer along with our model:</p>
-<p><img alt="code_8" src="../code_8.png" /></p>
+<pre><code class="language-python"># pipeline: train tf-vec and pass input to Naive Bayes Model
+model = Pipeline([(&quot;vectorizer&quot;, tf_vec),
+                  (&quot;classifier&quot;, MultinomialNB())])
+# train classifier
+model[&quot;classifier&quot;].fit(X_train, y_train)
+</code></pre>
 <p>To train our SVM model, we can use the above Pipeline approach above, or simply run the .fit command:</p>
-<p><img alt="code_9" src="../code_9.png" /></p>
+<pre><code class="language-python"># import SVM Classifier
+from sklearn.linear_model import SGDClassifier
+svm = SGDClassifier()
+# fit SVM on training data
+svm.fit(X_train, y_train)
+</code></pre>
 <hr />
 <h3 id="feature-engineering-and-model-improvements">Feature Engineering and Model Improvements</h3>
 <p>To my surprise and disappointment, initially Naive Bayes and SVM classification models performed very poorly on both training and test data! In order to improve the model performance I had to go back and make several changes to the features and labels. Small changes such as combining "action &amp; adventure" with "adventure", "SciFi" with "science fiction" improved the model performance significantly. The idea was to reduce the number of labels to be predicted by combining some of our overlapping genres.</p>
@@ -715,8 +763,8 @@
 <p>In order to use the model, we have to first load it. You can load it once you have downloaded it to your local computer or as I have done below using the web url:</p>
 <p><img alt="code_10" src="../code_10.png" /></p>
 <p>Once the model is loaded, embeddings can easily be produced for show overviews - it is almost like doing a simple lookup: all we need to do is provide the input as a list of sentences. In this case, this will be the cleaned up show descriptions that we would like our model to learn.</p>
-<p>The below code returns sentence embeddings for a list of sentences:
-<img alt="code_11" src="../code_11.png" /></p>
+<p>The below code returns sentence embeddings for a list of sentences:</p>
+<p><img alt="code_11" src="../code_11.png" /></p>
 <h3 id="making-predictions-on-new-shows">Making Predictions on New Shows</h3>
 <p>When we have a new show description that we would like to predict, we first need to obtain its embeddings using the same sentence encoder. Next, we take the inner product with the corpus embeddings of our training data. This will represent the semantic similarity between our new show description and our training data.
 <img alt="code_12" src="../code_12.png" /></p>
