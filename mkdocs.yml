@@ -8,6 +8,7 @@ repo_url: https://github.com/gabya06/gabya06.github.io
 # Configuration
 theme:
   name: material
+  favicon: images/selfie_2023.png
 # Page tree: refer to mkdocs documentation
 nav:
 - Home: index.md

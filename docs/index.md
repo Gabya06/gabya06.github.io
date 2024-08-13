@@ -1,30 +1,15 @@
-# Welcome to Gaby Agrocostea's Data Science Portfolio
-
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+# Welcome to Gaby's Data Science Portfolio
 
 ## About me
 
-I'm a data scientist, instructor and mentor. During my free time, I teach data science, python, machine learning and SQL to beginner and advanced students as a consultant. 
+I'm currenly working a data scientist & machine learning engineer in the tech industry. I also teach data science, python, machine learning and SQL to both beginner and advanced students. As a consultant and mentor, I guide junior data scientists on their journey.
 
 
-I enjoy writing blogs about latest developments in data science and machine learning, sharing insights from my current and past projects, and discussing my experiences in teaching and mentoring. Sharing knowledge with others is a passion of mine! You can find my blog posts on [medium.com/gabya06](https://medium.com/@gabya06) 
+I have a passion for writing blogs about latest developments in data science and machine learning, sharing insights from my current and past projects, and discussing my experiences in teaching and mentoring. Sharing knowledge is something I deeply enjoy! 
+You can find my blog posts on [medium.com/gabya06](https://medium.com/@gabya06) 
 
 ## Current Projects
-The project I am currently working on
-
-## Previous Projects
-Documentation and code for my previous work
+This site serves as a hub for my current and past data science projects.
 
 
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.

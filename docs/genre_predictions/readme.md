@@ -27,7 +27,35 @@ The reason for this is that we don't want our model to use words or numbers that
 
 In the below example, I used the NLTK library to perform some of the preprocessing steps mentioned above. The NLTK library is very useful when you are working with natural language; it contains many algorithms which make preprocessing a lot easier.
 
-![code_1](code_1.png)
+```python
+from nltk.corpus import stopwords
+from nltk import RegexTokenizer
+
+def tokenize_overview(mydata, overview_col):
+    """
+    Function to clean show overview
+
+    Returns:
+    --------
+    Return each row as a list of tokens
+    """
+    # removes punctuation
+    tokenizer = RegexpTokenizer(r"\w+")
+    stop_words = stopwords.words("English")
+
+    # split text
+    tokens = mydata[overview_col].map(lambda x: tokenizer.tokenize(x))
+    # strip white spaces & lower case
+    tokens = tokens.map(lambda x: [i.lower().strip("_") for i in x])
+    # remove stop words
+    tokens = tokens.map(lambda x: [i for i in x if i not in stop_words])
+    # remove empty strings
+    tokens = tokens.map(lambda x: [i for i in x if i != ''])
+
+    return tokens
+
+
+```
 
 A quick look at the data shows that each row in the tokens column contains a list of words:
 ![df_1](df_1.png)
@@ -55,17 +83,33 @@ Which can further be broken down into two parts:
 
 Calculating this by hand seems daunting, but using Tf-Idf from the scikit-learn library is actually quite straightforward! We simply fit the vectorizer on our training corpus after importing and calling the vectorizer. In general, we refer to our text data in NLP problems as corpus/training corpus.
 
-![code_2](code_2.png)
+```python 
+# import TF-IDF
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+# Tf-Idf vectorizer
+tf_vec = TfidfVectorizer()
+# fit vectorizer on corpus
+tf_vec.fit(train_corpus)
+```
+
 
 Next, we transform our corpus to tf-idf representation. This is just one line of code and this happens after we have done our data cleaning.
 
-![code_3](code_3.png)
+```python 
+# transform corpus to tfidf representation
+X_train = tf_vec.transform(train_corpus)
+```
 
-We can double check our new training dataset and see that it is now a sparse matrix with numeric datatype:
-![code_4](code_4.png)
+We can double check our new training dataset and see that it is now a sparse matrix with numeric datatype
+![code_14](code_14.png)
 
 If we wanted to see the features and vocabulary based on the corpus:
-![code_5](code_5.png)
+
+```python
+# get vocabulary
+dic_vocab = tf_vec.vocabulary_
+```
 
 ![code_6](code_6.png)
 
@@ -76,12 +120,23 @@ If we wanted to see all of the feature names:
 
 #### *_And Finally ...  Model Training ..._*
 After the data cleaning and vectorization, we can finally fit a Naive Bayes model in a few lines of code. We can make use of [Pipeline](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html) to pass in the fit vectorizer along with our model:
-
-![code_8](code_8.png)
+```python
+# pipeline: train tf-vec and pass input to Naive Bayes Model
+model = Pipeline([("vectorizer", tf_vec),
+                  ("classifier", MultinomialNB())])
+# train classifier
+model["classifier"].fit(X_train, y_train)
+```
 
 To train our SVM model, we can use the above Pipeline approach above, or simply run the .fit command:
 
-![code_9](code_9.png)
+```python
+# import SVM Classifier
+from sklearn.linear_model import SGDClassifier
+svm = SGDClassifier()
+# fit SVM on training data
+svm.fit(X_train, y_train)
+```
 
 ---
 
@@ -108,6 +163,8 @@ In order to use the model, we have to first load it. You can load it once you ha
 Once the model is loaded, embeddings can easily be produced for show overviews - it is almost like doing a simple lookup: all we need to do is provide the input as a list of sentences. In this case, this will be the cleaned up show descriptions that we would like our model to learn.
 
 The below code returns sentence embeddings for a list of sentences:
+
+
 ![code_11](code_11.png)
 
 ### Making Predictions on New Shows
