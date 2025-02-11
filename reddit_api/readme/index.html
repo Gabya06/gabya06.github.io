@@ -13,6 +13,10 @@
         <link rel="canonical" href="https://gabya06.github.io/reddit_api/readme/">
       
       
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../../roberta_analysis/readme/">
       
       
       <link rel="icon" href="../../images/selfie_2023.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Reddit API data pull using PRAW - Gaby's Data Science Portfolio</title>
+        <title>Reddit API - Gaby's Data Science Portfolio</title>
       
     
     
@@ -100,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reddit API data pull using PRAW
+              Reddit API
             
           </span>
         </div>
@@ -197,17 +201,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -221,12 +227,241 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Data Science Projects
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Rental Watch AI: From Reddit API to LLM's
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Rental Watch AI: From Reddit API to LLM's
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Reddit API
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Reddit API
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Table of Contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-setting-up-reddit-api-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Setting up Reddit API Access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-filtering-top-posts-from-last-week" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Filtering Top Posts from Last Week
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-extracting-and-analyzing-post-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Extracting and Analyzing Post Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-data-exploration" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Data Exploration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Data Exploration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-much-engagement-do-posts-typically-receive" class="md-nav__link">
+    <span class="md-ellipsis">
+      How much engagement do posts typically receive?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-the-typical-upvote-range-for-posts" class="md-nav__link">
+    <span class="md-ellipsis">
+      What’s the typical upvote range for posts?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Next Steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roberta_analysis/readme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RoBERTa Model for Reddit Posts Sentiment Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
             
               
                 
@@ -354,11 +589,95 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started-with-praw" class="md-nav__link">
+  <a href="#table-of-contents" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting Started with PRAW
+      Table of Contents
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Table of Contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-setting-up-reddit-api-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Setting up Reddit API Access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-filtering-top-posts-from-last-week" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Filtering Top Posts from Last Week
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-extracting-and-analyzing-post-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Extracting and Analyzing Post Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-data-exploration" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Data Exploration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Data Exploration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-much-engagement-do-posts-typically-receive" class="md-nav__link">
+    <span class="md-ellipsis">
+      How much engagement do posts typically receive?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-the-typical-upvote-range-for-posts" class="md-nav__link">
+    <span class="md-ellipsis">
+      What’s the typical upvote range for posts?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Next Steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -381,11 +700,22 @@
 
 
 <h1 id="reddit-api-data-pull-using-praw">Reddit API data pull using PRAW</h1>
-<h3 id="project-overview">Project Overview</h3>
-<p>The goal of this project was to learn how to pull Reddit data using the python package PRAW. In particular, I am interested in learning how Reddit users are feeling about New York City Apartment Rentals. There is a subgroup called NYC Apartments and the goal is to pull user posts and comments to gage how they feel (this will part 2 of this post). </p>
-<p>I wrote an article on my page on <a href="https://medium.com/@gabya06/automating-reddit-summaries-pulling-data-with-python-91afeb6acdb3">medium.com</a> and I also wanted to share the jupyter notebook.</p>
-<p>Once I have extracted Reddit posts and comments, the next step in this project is to use pre-trained models on Hugging Face and categorize sentiments to understand how Reddit users feel about renting apartments in New York City. Lastly, the 3rd part of this project will be to use OpenAI to summarize posts and comments. </p>
-<h3 id="getting-started-with-praw">Getting Started with PRAW</h3>
+<p><img alt="reddit" src="../reddit_pic.png" /></p>
+<h2 id="project-overview">Project Overview</h2>
+<p>The goal of this project was to learn how to pull Reddit data using the python package PRAW. In particular, I am interested in learning how Reddit users are feeling about New York City Apartment Rentals. There is a subgroup called NYC Apartments and the goal is to <em>pull user posts and comments</em>.  </p>
+<p>✽ The full article can be found on my page on <a href="https://medium.com/@gabya06/automating-reddit-summaries-pulling-data-with-python-91afeb6acdb3">medium.com</a>. <br>
+✽ The corresponding code to pull Reddit data using the API can be found in <a href="https://github.com/Gabya06/RentWatchAI/blob/main/pull_reddit_api_data.ipynb">github</a>.<br>
+✽ The corresponding code with data visualizations can be found in this <a href="https://github.com/Gabya06/RentWatchAI/blob/main/data_analysis_viz.ipynb">notebook</a></p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#api-access">Setting up Reddit API Access</a></li>
+<li><a href="#filtering">Filtering Top Posts from Last Week</a></li>
+<li><a href="#extract">Extracting and Analyzing Post Data</a></li>
+<li><a href="#dataviz">Data Exploration</a></li>
+<li><a href="#next-steps">Next Steps</a></li>
+</ol>
+<p><a id="api-access"></a></p>
+<h3 id="1-setting-up-reddit-api-access">1. Setting up Reddit API Access</h3>
 <p>PRAW stands for Python Reddit API Wrapper and that's exactly what it is. Although I was a bit intimidated initially, using it turned out to be quite easy. To start, I had to create a <a href="https://www.reddit.com/prefs/apps">Reddit App</a> to create a <code>client_id</code> and <code>client_secret</code> - which I saved in a credential file. Simple enough, right? </p>
 <p>After this, I had to install PRAW:</p>
 <pre><code class="language-bash">pip install praw
@@ -400,10 +730,12 @@ reddit = praw.Reddit(
     username=user_name,
 )
 </code></pre>
-<p>And that's it! On to pulling data! As I mentioned, I am interested in the NYC Apartment subreddit. It is called ''. To pull data, I have to create an instance:</p>
+<p>And that's it! On to pulling data! As I mentioned, I am interested in the NYC Apartment subreddit. It is called 'NYCapartments'. To pull data, I have to create an instance:</p>
 <pre><code class="language-python"># Create an instance of NYCapartments subreddit
 sub_reddit = reddit.subreddit(&quot;NYCapartments&quot;)
 </code></pre>
+<p><a id="filtering"></a></p>
+<h3 id="2-filtering-top-posts-from-last-week">2. Filtering Top Posts from Last Week</h3>
 <p>With PRAW, we can easily grab posts by week, month or year. In this example, I wanted to just grab the top 5 posts from the past week to understand how the data is returned. The below code returns the post title, upvotes (score) and comments. </p>
 <pre><code class="language-python"># Get the top 5 posts from the past week
 weekly_posts = sub_reddit.top(time_filter='week', limit=5)
@@ -424,7 +756,9 @@ Post title: Age discrimination in NYC rentals?
 Post upvotes: 113
 Post comments: &lt;praw.models.comment_forest.CommentForest object at 0x28d1f4d90&gt;
 </code></pre>
-<p>Interestingly, <code>post.comments</code> returns an object called <code>comment_forest</code>. In order to see the actual comments, we need to further be processed this, but it's not too difficult. I created a list to store all comments and iterated through the comments. For each post, I created a post dictionary with the comments:</p>
+<p><a id="extract"></a></p>
+<h3 id="3-extracting-and-analyzing-post-data">3. Extracting and Analyzing Post Data</h3>
+<p>Interestingly, <code>post.comments</code> returns an object called <code>comment_forest</code>. In order to see the actual comments, we need to further process this, but it's not too difficult. To do this, I created a list to store all comments and iterated through the comments. For each post, I created a post dictionary with the comments:</p>
 <pre><code class="language-python"># Pull posts from last year NYCapartments subreddit
 post_list = []
 
@@ -441,8 +775,22 @@ for post in subrreddit:
 result_df = pd.DataFrame(post_list)    
 </code></pre>
 <p>Note the use of <code>replace_more</code> to retrieve all comments, including nested ones. This ensures you don’t miss out on any key discussion points. You can find the documentation <a href="https://praw.readthedocs.io/en/stable/tutorials/comments.html">here</a>.</p>
-<p>Here is what the data looks like:</p>
+<p><a id="dataviz"></a></p>
+<h3 id="4-data-exploration">4. Data Exploration</h3>
+<p>After pulling the data from subreddit, we can start asking meaningful questions and perform data analysis. But first, here is a quick look at the data:</p>
 <p><img alt="data" src="../data.png" /></p>
+<h4 id="how-much-engagement-do-posts-typically-receive">How much engagement do posts typically receive?</h4>
+<p>By examining the distribution of comments, we see that the majority of posts get fewer than 100 comments:</p>
+<p><img alt="pic" src="../pic1.png" /></p>
+<h4 id="whats-the-typical-upvote-range-for-posts">What’s the typical upvote range for posts?</h4>
+<p>Most posts fall within the range of 150 to 300 upvotes, showing moderate interest from the subreddit. However, there are occasional outliers with over 600 upvotes, indicating viral content that grabs more widespread attention:</p>
+<p><img alt="pic2" src="../pic2.png" /></p>
+<p><a id="next-steps"></a></p>
+<h3 id="5-next-steps">5. Next Steps</h3>
+<p>Once I have extracted Reddit posts and comments, the next step in this project is to use pre-trained models on <strong>Hugging Face’s Twitter-RoBERTa-base model for sentiment analysis</strong>. This analysis will provide a deeper layer of insight, complementing the engagement data, and helping us understand not only how much users are interacting but also the emotional context behind their conversations. Lastly, the 3rd part of this project will be to use OpenAI to summarize posts and comments. </p>
+<hr />
+<h3 id="resources">Resources:</h3>
+<p><a href="https://praw.readthedocs.io/en/stable/getting_started/quick_start.html">Praw Quick Start</a></p>
 
 
 

@@ -10,13 +10,13 @@
         <meta name="author" content="Gaby Agrocostea">
       
       
-        <link rel="canonical" href="https://gabya06.github.io/ensemble/readme/">
+        <link rel="canonical" href="https://gabya06.github.io/roberta_analysis/readme/">
       
       
-        <link rel="prev" href="../../genre_predictions/readme/">
+        <link rel="prev" href="../../reddit_api/readme/">
       
       
-        <link rel="next" href="../../about/">
+        <link rel="next" href="../../glassdoor_reviews/readme/">
       
       
       <link rel="icon" href="../../images/selfie_2023.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Ensemble Models for Price Forecasting - Gaby's Data Science Portfolio</title>
+        <title>RoBERTa Model for Reddit Posts Sentiment Analysis - Gaby's Data Science Portfolio</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ensemble-regression-models-for-price-forecasting" class="md-skip">
+        <a href="#sentiment-analysis-of-reddit-comments-using-roberta" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ensemble Models for Price Forecasting
+              RoBERTa Model for Reddit Posts Sentiment Analysis
             
           </span>
         </div>
@@ -238,17 +238,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
         
           
           <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
@@ -262,7 +264,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             Rental Watch AI: From Reddit API to LLM's
@@ -294,10 +296,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../roberta_analysis/readme/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    RoBERTa Model for Reddit Posts Sentiment Analysis
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -306,6 +328,95 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Table of Contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Install Dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tokenize-the-text-and-model-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Tokenize the Text and Model Prediction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-interpreting-model-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Interpreting Model Output
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -365,30 +476,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Ensemble Models for Price Forecasting
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../ensemble/readme/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -397,68 +488,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-are-ensemble-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      What are ensemble models?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scikit-learn-api-for-ensemble-methods" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scikit-Learn API for Ensemble Methods
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ensemble-regression-case-study" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ensemble Regression Case Study
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Ensemble Regression Case Study">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#additional-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Additional Resources:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -518,37 +547,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-are-ensemble-models" class="md-nav__link">
+  <a href="#project-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      What are ensemble models?
+      Project Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#scikit-learn-api-for-ensemble-methods" class="md-nav__link">
+  <a href="#table-of-contents" class="md-nav__link">
     <span class="md-ellipsis">
-      Scikit-Learn API for Ensemble Methods
+      Table of Contents
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ensemble-regression-case-study" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ensemble Regression Case Study
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Ensemble Regression Case Study">
+    <nav class="md-nav" aria-label="Table of Contents">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#additional-resources" class="md-nav__link">
+  <a href="#1-install-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
-      Additional Resources:
+      1. Install Dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tokenize-the-text-and-model-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Tokenize the Text and Model Prediction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-interpreting-model-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Interpreting Model Output
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources:
     </span>
   </a>
   
@@ -577,70 +633,128 @@
   
 
 
-<h1 id="ensemble-regression-models-for-price-forecasting">Ensemble regression models for price forecasting</h1>
-<p>Ensemble methods are very popular and effective methods in machine learning, and in this post I'm going to illustrate how to <em>forecast prices using ensemble learning</em>.</p>
-<p>While time series and regression models work well on their own, when combining these using ensemble methods we can get a better performing model and more accurate predictions for tomorrow's price values given historical data.</p>
-<p>In this post, I will cover:</p>
-<li> Ensemble methods basics and fundamentals</li>
-<li> Python code for ensembles using scikit-learn machine learning library</li>
-<li> Ensemble Regression use case for price forecasting</li>
-
-<h2 id="what-are-ensemble-models">What are ensemble models?</h2>
-<p>Ensemble models combine predictions from other simpler models to produce better predictions. There are two types of ensemble methods:</p>
-<p>1) <em>parallel</em> ensemble methods which combine independent learners to <em>reduce variance</em>
-2) <em>sequential</em> ensemble methods which combine models in order to <em>reduce bias and variance</em></p>
-<p>Parallel ensemble methods generate and train their base learners <em>in parallel</em> and these learners are <em>independent</em> of each other. Training parallel base estimators is also known as <em>Bagging</em> (Bootstrap Aggregation) and here we aggregate/average the individual base estimator predictions into one final prediction.</p>
-<p>It is referred to as Bootstrap Aggregation since <a href="https://en.wikipedia.org/wiki/Bootstrapping_(statistics)">bootstrap</a> sampling is used to sample the data subsets needed to train the base learners; simply put, bootstrapping sampling refers to sampling with replacement while assigning measures of accuracy to sample estimates.</p>
-<p>The combined estimator uses averaging for regression problems and majority voting for classification problems; and this is usually better than the single base estimators because variance is reduced by averaging. <a href="https://en.wikipedia.org/wiki/Random_forest">Random Forest</a> is an example of an effective bagging algorithm which aggregates over multiple decision trees, each trained using different bootstrapped samples as well as split on different features.</p>
-<p><img alt="pic1" src="../pic1.png" /></p>
-<p>As the names suggests, sequential ensemble methods generate and train their base learners <em>sequentially</em> (one after the other), and these learners are <em>dependent</em> of each another. As such, the overall performance can be improved by weighing previously mislabeled/incorrect examples with higher weight; the goal is to reduce the bias of the combined estimator.</p>
-<p>This method is also known as <em>Boosting</em> and <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostRegressor.html">AdaBoost</a> is an example of a popular and effective Boosting algorithm. The base learners are usually weak learners such as small decision trees trained on a weighted version of the data based on the previous learners' mistakes. Weights are increased based on correct and incorrect predictions, and more weight is given to more accurate learners. The final predictions are combined by a weighted sum or weighted majority vote.</p>
-<p>Another example of a boosting algorithm is Gradient Boosting, which is the model used in this price forecasting use case. Since prices are predicted, the values (also known as labels) are numeric. As such, regression models are used as the base learners and then combined using <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html">Gradient Boosting Regressor</a>.</p>
-<hr />
-<p>Below is a basic workflow of how models could feed base predictions to an ensemble learner which then would make final price predictions. In this illustration have chosen my base learners to be linear regression, moving averages, simple exponential smoothing and LSTM, but there are other models that could be used.</p>
-<p><img alt="pic2" src="../pic2.png" /></p>
-<h2 id="scikit-learn-api-for-ensemble-methods">Scikit-Learn API for Ensemble Methods</h2>
-<p>The scikit-learn python machine learning library provides Gradient Boosting ensembles methods for both <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html">classification</a> and <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html">regression</a> problems.</p>
-<p>In the below example, after our import statements, we read the training data for our ensemble regressor - which is the output of our base model predictions - and then split the dataset into X and y.</p>
-<pre><code class="language-python"># import statements
-import pandas as pd
-from sklearn.ensemble import GradientBoostingRegressor
-
-# read csv file
-df = pd.read_csv(&quot;price_data.csv&quot;)
+<h1 id="sentiment-analysis-of-reddit-comments-using-roberta">Sentiment Analysis of Reddit Comments Using RoBERTa</h1>
+<p><img alt="huggingface" src="../pic1.png" /></p>
+<h2 id="project-overview">Project Overview</h2>
+<p>This project applies sentiment analysis to Reddit comments using <strong>RoBERTa</strong>, a powerful NLP model developed by Meta AI. RoBERTa is fine-tuned on millions of tweets and can be used to classify text as positive, neutral, or negative, making it well-suited for analyzing online discussions.
+RoBERTa is available on <strong>Hugging Face</strong>, a platform hosting 900k+ models, 200k+ datasets, and 300k+ demo applications, fostering collaboration in machine learning.</p>
+<p>✽ The full article can be found on my page on <a href="https://medium.com/@gabya06/hugging-face-roberta-model-for-sentiment-analysis-4f52e9ccb490">medium.com</a>. <br>
+✽ The corresponding code can be found in <a href="https://github.com/Gabya06/RentWatchAI/blob/main/roberta_sentiment_analysis.ipynb">github</a>.<br></p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#setup">Install Dependencies</a></li>
+<li><a href="#roberta">RoBERTa Model &amp; Tokenization</a></li>
+<li><a href="#prediction">Sentiment Prediction</a></li>
+<li><a href="#interpret">Probability Interpretation</a></li>
+<li><a href="#vis">Visualization</a></li>
+</ol>
+<p><a id="setup"></a></p>
+<h3 id="1-install-dependencies">1. Install Dependencies</h3>
+<p>Let's instal the required library to use RoBERTa:</p>
+<pre><code class="language-bash">pip install transformers torch matplotlib
 </code></pre>
-<p><img alt="pic3" src="../pic3.png" /></p>
-<p>In this case, the ensemble model is defined using 500 estimators and uses Absolute Error as its loss function. It is then fit to our data with one simple line of code. The next line of code makes predictions on our training data.</p>
-<p>Please note that this is meant as a very simple example and that usually we need include additional steps into our modeling such as splitting the data into training and testing, <a href="https://scikit-learn.org/stable/modules/cross_validation.html">cross validation</a> and analyze various error metrics for performance.</p>
-<pre><code class="language-python"># define model - let's start with 500 estimators
-ensemble_regressor = GradientBoostingRegressor(random_state=23, loss='absolute_error',
-n_estimators=500)
+<p>And let's load the model and tokenizer:</p>
+<pre><code class="language-python">from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-# fit the model
-ensemble_regressor.fit(X, y)
-
-# make predictions
-ensemble_preds = ensemble_regressor.predict(X)
+model = AutoModelForSequenceClassification.from_pretrained(&quot;cardiffnlp/twitter-roberta-base-sentiment&quot;)  
+tokenizer = AutoTokenizer.from_pretrained(&quot;cardiffnlp/twitter-roberta-base-sentiment&quot;)
 </code></pre>
-<p>There are multiple hyper parameters that can be tuned such as the loss function, learning rate, min samples split, max depth and others.</p>
-<p>The default loss function is squared error for regression, but we can chose from least absolute error, huber or quantile. The default criterion which measures the quality of a split is "friedman_mse" but we could have also picked "squared_error" instead.</p>
-<p>In scikit-learn we see these parameters:</p>
+<p>In the previous section of this project, I extracted Reddit post and comments from the subreddit NYC Apartments. 
+This is dataset that is used in this project; it consists of 200 sample rows with over 8,000 comments.</p>
+<p>Let's take a sample comment:</p>
+<pre><code class="language-python">sample_comment = &quot;&quot;&quot;
+I didn't live in one but I worked at an office in Hudson Yards on the 72nd floor and the view never got old.
+I got used to it. I never got tired of it.
+I got used to mine, but continued to vicariously live through other people when they saw it the first time.
+Impressed my girlfriend at the time enough to become my wife so all in all worth it.
+But after 6.5 years of a 6-floor walk-up, I'm happy to be a ground-floor dweller now.
+It never gets old for me. Besides the view, I've noticed my apartment is very quiet.
+There are no bugs or rodents that make it up this high, either. Totally worth it for me.
+&quot;&quot;&quot;
+</code></pre>
+<p>If I had to guess, I would classify this comment as positive — I see positive keywords like ‘positive’, ‘never gets old’, ‘no bugs’, ‘worth it’. 
+Let's use machine learning to classify it as positive, negative, or neutral.</p>
+<p><a id="roberta"></a></p>
+<h3 id="2-tokenize-the-text-and-model-prediction">2. Tokenize the Text and Model Prediction</h3>
+<p>To prepare the comment for RoBERTa, we need to convert it into a format the model understands. 
+This means using the tokenizer to transform the text into numerical representations:</p>
+<pre><code class="language-python">encoded_comment = tokenizer(
+    sample_comment,
+    return_tensors='pt',
+    truncation=True,
+    max_length=512
+)
+</code></pre>
+<p>Note that I set <code>max_length</code> to 512 because this model can process <em>up to 512 tokens</em> at a time. 
+This limit ensures that our input fits within the model's capabilities.</p>
+<p>Let's take a closer look at what <code>encoded_comment</code> consists of:
+<img alt="pic2" src="../pic2.png" /></p>
+<p><code>input_ids</code> represent the numerical values of the words in the text, and 
+<code>attention_mask</code> is a tensor with <strong>1's or 0's</strong> indicating which tokens should be <strong>attended</strong> to during processing.</p>
+<p>Next, let's make some predictions:</p>
+<pre><code class="language-python">import torch
+
+output = model(**encoded_comment)
+logits = output.logits
+</code></pre>
+<p>Here is an example of what <code>output</code> looks like - it contains the <strong>logits</strong>:</p>
+<pre><code>SequenceClassifierOutput(loss=None, logits=tensor([[-1.9768,  0.1379,  2.0923]], grad_fn=&lt;AddmmBackward0&gt;), hidden_states=None, attentions=None)
+</code></pre>
+<p><a id="prediction"></a></p>
+<h3 id="3-interpreting-model-output">3. Interpreting Model Output</h3>
+<p>The model returns <strong>raw logits</strong>, which must be converted into probabilities:</p>
+<pre><code class="language-python">import torch.nn.functional as F
+
+probs = F.softmax(logits, dim=1)
+print(probs)
+</code></pre>
+<p>Example output:</p>
+<pre><code>tensor([[0.0148, 0.1222, 0.8630]])
+</code></pre>
+<p>As a final step, we need to map these probabilities to the sentiment labels:</p>
+<pre><code class="language-python">from transformers import AutoConfig
+
+config = AutoConfig.from_pretrained(&quot;cardiffnlp/twitter-roberta-base-sentiment&quot;)
+predicted_label_index = torch.argmax(probs).item()
+print(f&quot;Predicted sentiment is: {config.id2label[predicted_label_index]}&quot;)
+
+# output
+# Predicted sentiment is positive
+</code></pre>
+<p>For our sample, the prediction is <em>positive</em>! 
+The model agrees with our initial classification. Although we’ve only classified one comment here, it’s always a good practice to verify model predictions against initial observations to see if they align with our intuition. While it’s not feasible to do this for all data, spot-checking a few predictions helps ensure the model’s results make sense.</p>
+<p>Once we have performed this across the entire data, we can sample some comments and print their sentiment and probabilities:</p>
+<pre><code class="language-python">for ix, row in data[['cleaned_text','sentiment','sentiment_prob']].sample(3).iterrows():
+  print(f&quot;{row['cleaned_text'][:200]}&quot;)
+  print(f&quot;Sentiment: {row['sentiment']}&quot;)
+  print(f&quot;Probability: {row['sentiment_prob']}\n&quot;)
+</code></pre>
+<p>Here are the sample results (up to 200 characters):</p>
+<pre><code>congratulations what site did you use for a rent stabilized place? my first place in nyc 10 years ago was a room with 4 other roommates in a walk up. fast forward 10 years and my dream apartment (also
+Sentiment: positive
+Probability: 0.929
+
+34 market is a great example of this tax being totally needed   also my building is half empty and units are infested with rats because no none lives in them   some have broken windows which makes the
+Sentiment: negative
+Probability: 0.599
+
+bring back mitchell llama and public housing developments, if the private sector won’t build, swing the pendulum back to the public sector.  watch the prices drop as supply returns. i have very little
+Sentiment: neutral
+Probability: 0.535
+</code></pre>
+<p><a id="vis"></a></p>
+<h3 id="5-visualization">5. Visualization</h3>
+<p>To get a clearer view of our sentiment analysis results, let’s plot a few charts</p>
+<p>showing the distribution of positive, neutral, and negative comments. This will help us quickly understand which sentiment is most prevalent in our data.</p>
+<ul>
+<li>Sentiment distribution - a big majority of comments are negative</li>
+<li>Sentiment probability distributions: positive and negative are wider ranging and neutral is smallest</li>
+</ul>
 <p><img alt="pic4" src="../pic4.png" /></p>
 <hr />
-<h2 id="ensemble-regression-case-study">Ensemble Regression Case Study</h2>
-<p>As a quick recap, we now have a better understanding of what ensemble models are: decision trees combined to produce better predictions using averages or weighted averages in the case of AdaBoost. Now, we can take a look at our use case for price prediction.</p>
-<p>For base models, I used several linear regression models as well as time series models. While linear regression models are easy to fit, fast in runtime and great for understanding general trends, they don't always capture granular changes. Time series models are good for repeating seasonal trends; however this can also be considered a disadvantage if the model holds on to trends longterm. Knowing this bit of information, it is useful to add a quick learner such as an LSTM model. Moreover, one can start to understand why it might be advantageous to combine the pros of these models somehow.</p>
-<hr />
-<p>Having cleaned and vectorized data, we split the data for each model into training and test data sets. In this example, linear regression models trained across different time periods (e.g: say we have two models, one trained on 3 months and one trained on 9 months), so we have to be careful about splitting our data accordingly for each model.</p>
-<p>Each model is trained and then makes predictions against the test data set. The ensemble model is consequently trained; the feature set consists of these base model predictions and the dependent variable y consists of the test data price values. Lastly the trained ensemble learner returns one target price for the interval forecast period of 30 days.</p>
-<p><img alt="pic5" src="../pic5.png" /></p>
-<p>Price prediction is a common use case and we can imagine how implementing these models can be leveraged to allow different types of clients and Account Management teams to better auto-scale pricing for their products. This is one of many interesting use cases of ensemble regression for price forecasting.</p>
-<hr />
-<h3 id="additional-resources">Additional Resources:</h3>
-<ul>
-<li><a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.ensemble">Scikit-learn Ensemble Doumentation</a></li>
-<li><a href="https://mlwave.com/kaggle-ensembling-guide/">Kaggle Ensemble Documentation</a></li>
-</ul>
+<h3 id="resources">Resources:</h3>
+<p><a href="https://huggingface.co/">HuggingFace</a>
+<a href="https://medium.com/@hunter-j-phillips/a-simple-introduction-to-softmax-287712d69bac">Soft Max</a></p>
 
 
 
