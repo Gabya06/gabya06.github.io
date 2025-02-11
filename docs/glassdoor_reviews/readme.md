@@ -1,8 +1,10 @@
-# Sentiment Analysis on glassdoor.com data science jobs
+# Sentiment Analysis of Data Science Job Reviews on Glassdoor
 
 ### Project Overview
-The goal of this project was to scrape some data science job reviews from glassdoor.com and analyze company reviews. I wanted to perform sentiment analysis to understand what users were writing, and to investigate how the number of stars given to a company related to the sentiment in the review. 
-For the complete blog, visit my page on [medium.com](https://medium.com/@gabya06/python-sentiment-analysis-using-textblob-and-vader-for-glassdoor-reviews-cc9632babb73).
+The goal of this project was to scrape data science job reviews from glassdoor.com and analyze company reviews. I wanted to perform **sentiment analysis** to understand what users were writing, and to investigate how the number of stars given to a company related to the sentiment in the review. 
+
+✽ For the complete blog, visit my page on [medium.com](https://medium.com/@gabya06/python-sentiment-analysis-using-textblob-and-vader-for-glassdoor-reviews-cc9632babb73). <br>
+✽ The complete jupyter notebook is on [github](https://github.com/Gabya06/sentiment_analysis_glassdoor)
 
 
 ## Table of Contents
@@ -44,7 +46,7 @@ df.clean_review = df.clean_review.map(lambda x: " ".join([i.lower() for i in x.s
 ## Data Exploration & Visualization
 Once the data is cleaned I can finally move on to the fun part, visualizations! I wanted to create a word cloud of the most frequent words in the reviews, so I created word counts:
 
-```python
+``` python
 # collect words
 word_list = []
 word_list.extend(df.clean_review.str.split())
@@ -119,7 +121,7 @@ So far so good, it looks like TextBlob assigns a more positive sentiment score t
 * We also see the review for the **worse** rating of 3.1 does not correspond to a negative review
 
 
-```python
+``` python
 # let's find worse review
 worse_stars = df.stars.min()
 worse_review = df[df.stars == df.stars.min()].clean_review.values[0]
@@ -177,7 +179,7 @@ And the sentiment analyzer output:<br>
 Once we get all the compound, positive and negative scores we can plot them each against the stars given.
 
 
-Since compound scores greater than or equal to 0.5 are considered positive we should see a more linear relationship in the below chart. We also notice that there is a dip in the compound score between 3.5 and 3.75 which is interesting.
+Since compound scores greater than or equal to 0.5 are considered positive we should see a *more linear relationship* in the below chart. We also notice that there is a dip in the compound score between 3.5 and 3.75 which is interesting. To explore this further we could look at reviews with stars between 3.5 and 3.75 and look at word frequencies as well as compound scores.
 
 ![vader_compoundscores](vader_compoundscores.png)
 
@@ -187,9 +189,11 @@ Here we see the positive scores vs. stars given:
 ![vader_pos_scores](vader_pos_scores.png)
 
 
-
 And lastly, here are the negative scores vs. stars given:
 ![vader_neg_scores](vader_neg_scores.png)
 
+---
 
-
+### Resources:
+* [TextBlob](https://textblob.readthedocs.io/en/dev/index.html)
+* [Vader](https://github.com/cjhutto/vaderSentiment)

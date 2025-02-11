@@ -9,8 +9,8 @@ Some people love horror, others prefer drama, and some can’t get enough of spo
 This project explores movie genre trends and uses machine learning to predict genres based on a movie’s synopsis or description. By analyzing patterns, we aim to understand which genres dominate at different times of the year.
  
  
-The complete blog can be found on my [medium.com](https://medium.com/@gabya06/predicting-movie-genres-using-machine-learning-models-and-semantic-textual-similarity-f77a5e842a89) page.
-And, the corresponding code can be found in [github](https://github.com/Gabya06/nlp_genres/blob/master/genre_demo.ipynb).
+✽ The complete blog can be found on my [medium.com](https://medium.com/@gabya06/predicting-movie-genres-using-machine-learning-models-and-semantic-textual-similarity-f77a5e842a89) page. <br>
+✽ The corresponding code can be found in [github](https://github.com/Gabya06/nlp_genres).
 
 ## Table of Contents
 
