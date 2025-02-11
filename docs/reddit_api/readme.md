@@ -114,7 +114,7 @@ Most posts fall within the range of 150 to 300 upvotes, showing moderate interes
 ![pic2](pic2.png)
 
 <a id="next-steps"></a>
-### Next Steps
+### 5. Next Steps
 Once I have extracted Reddit posts and comments, the next step in this project is to use pre-trained models on **Hugging Face’s Twitter-RoBERTa-base model for sentiment analysis**. This analysis will provide a deeper layer of insight, complementing the engagement data, and helping us understand not only how much users are interacting but also the emotional context behind their conversations. Lastly, the 3rd part of this project will be to use OpenAI to summarize posts and comments. 
 
 ---

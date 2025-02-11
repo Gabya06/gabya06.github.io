@@ -14,6 +14,9 @@ theme:
 nav:
 - Home: index.md
 - Data Science Projects:
+  - "Rental Watch AI: From Reddit API to LLM's": 
+    - "Reddit API": reddit_api/readme.md 
+    - "RoBERTa Model for Reddit Posts Sentiment Analysis": roberta_analysis/readme.md 
   - "Sentiment Analysis on Glassodoor Reviews": glassdoor_reviews/readme.md
   - "Predicting Movie Genres using Machine Learning": genre_predictions/readme.md
   - "Ensemble Models for Price Forecasting": ensemble/readme.md
