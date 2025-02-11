@@ -47,6 +47,8 @@
       
     
     
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -113,43 +115,6 @@
       <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
-    
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
     
     
       <div class="md-header__source">
@@ -255,7 +220,7 @@
             
   
   <span class="md-ellipsis">
-    Current project
+    Data Science Projects
   </span>
   
 
@@ -265,7 +230,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Current project
+            Data Science Projects
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -331,6 +296,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#web-scrapping-glassdoor-data" class="md-nav__link">
     <span class="md-ellipsis">
       Web Scrapping Glassdoor Data
@@ -340,11 +314,35 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#functions.get_page" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_page
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions.get_jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_jobs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_jobs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#text-preprocessing" class="md-nav__link">
     <span class="md-ellipsis">
       Text Preprocessing
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -373,13 +371,31 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#functions.plot_wordcloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      plot_wordcloud
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sentiment-analysis-using-textblob-polarity-and-subjectivity" class="md-nav__link">
     <span class="md-ellipsis">
       Sentiment Analysis using TextBlob Polarity and Subjectivity
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Sentiment Analysis using TextBlob Polarity and Subjectivity">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions.print_polarity_subjectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      print_polarity_subjectivity
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="print_polarity_subjectivity">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -413,48 +429,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Previous data science projects
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            Previous data science projects
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -505,6 +479,26 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -541,6 +535,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#web-scrapping-glassdoor-data" class="md-nav__link">
     <span class="md-ellipsis">
       Web Scrapping Glassdoor Data
@@ -550,11 +553,35 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#functions.get_page" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_page
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions.get_jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_jobs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_jobs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#text-preprocessing" class="md-nav__link">
     <span class="md-ellipsis">
       Text Preprocessing
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -583,13 +610,31 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#functions.plot_wordcloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      plot_wordcloud
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sentiment-analysis-using-textblob-polarity-and-subjectivity" class="md-nav__link">
     <span class="md-ellipsis">
       Sentiment Analysis using TextBlob Polarity and Subjectivity
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Sentiment Analysis using TextBlob Polarity and Subjectivity">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions.print_polarity_subjectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      print_polarity_subjectivity
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="print_polarity_subjectivity">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -635,73 +680,146 @@
 
 <h1 id="sentiment-analysis-on-glassdoorcom-data-science-jobs">Sentiment Analysis on glassdoor.com data science jobs</h1>
 <h3 id="project-overview">Project Overview</h3>
-<p>The goal of this project was to scrape some reviews from glassdoor.com from data science job postings and to analyze company reviews and perform sentiment analysis to understand what users were writing. I also wanted to investigate how the number of stars given to a company related to the sentiment in the review. 
-I wrote an article on my page on <a href="https://medium.com/@gabya06/python-sentiment-analysis-using-textblob-and-vader-for-glassdoor-reviews-cc9632babb73">medium.com</a> and I also wanted to share the jupyter notebook.</p>
-<h3 id="web-scrapping-glassdoor-data">Web Scrapping Glassdoor Data</h3>
-<p>Since glassdoor.com does not have an available API, I decided to try out web scrapping on a few glassdoor.com machine learning job listings with company reviews.  I was only able to scrape a small amount of reviews before getting the 403 Forbidden Error. To scrape data I used Selenium and BeautifulSoup packages. Below are two of the main functions I used to scrape data using BeatufifulSoup:</p>
-<pre><code class="language-python">def get_page(url, headers):
-    &quot;&quot;&quot;
-    Function to get webpage results into Beautifulsoup object
-    &quot;&quot;&quot;
-    try:
-        req = Request(url, headers=headers)
-        page = urlopen(req)
-        soup = BeautifulSoup(page, &quot;html.parser&quot;)
-        return soup
-    except HTTPError as e:
-        print(f&quot;Error opening page {e}&quot;)
-</code></pre>
-<p>To pull job listings I used the below:</p>
-<pre><code class="language-python">def get_jobs():
-    &quot;&quot;&quot;
-    Function to get job listing table from glassdoor.com
-        It will load webpage first then loop through table
-        It will return data with columns:
-            [company, job_title, job_url, job_id]
-    &quot;&quot;&quot;
+<p>The goal of this project was to scrape some data science job reviews from glassdoor.com and analyze company reviews. I wanted to perform sentiment analysis to understand what users were writing, and to investigate how the number of stars given to a company related to the sentiment in the review. 
+For the complete blog, visit my page on <a href="https://medium.com/@gabya06/python-sentiment-analysis-using-textblob-and-vader-for-glassdoor-reviews-cc9632babb73">medium.com</a>.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#webscraping">Web Scrapping</a></li>
+<li><a href="#dataexploration">Data Exploration</a></li>
+<li><a href="#sentiment-textblob">Sentiment Analysis with TextBlob</a></li>
+<li><a href="#sentiment-vader">Sentiment Analysis with Vader</a></li>
+</ol>
+<p><a id="webscraping"></a></p>
+<h2 id="web-scrapping-glassdoor-data">Web Scrapping Glassdoor Data</h2>
+<p>Since glassdoor.com does not have an available API, I decided to try out web scrapping on a few glassdoor.com machine learning job listings with company reviews.  I was only able to scrape a small amount of reviews before getting the 403 Forbidden Error. To scrape data I used Selenium and BeautifulSoup packages. </p>
+<p>Below are two of the main functions I used to scrape data using BeatufifulSoup:</p>
 
-    # load webpage using Beautifulsoup first
-    soup = get_page()
-    table = soup.find(&quot;table&quot;)
-    table_rows = table.find_all(&quot;tr&quot;)
 
-    data_dict = {}
-    data_list = []
+<div class="doc doc-object doc-function">
 
-    # loop through table rows and extract information to dictionary
-    for elem in table_rows[1:]:
-        try:
-            data_dict[&quot;company&quot;] = elem.find(&quot;td&quot;, {&quot;class&quot;: &quot;company&quot;}).text
-        except AttributeError:
-            data_dict[&quot;company&quot;] = None
-        try:
-            data_dict[&quot;job_title&quot;] = elem.find(&quot;td&quot;, {&quot;class&quot;: &quot;job_title&quot;}).text
-        except AttributeError:
-            data_dict[&quot;job_title&quot;] = None
-        try:
-            data_dict[&quot;job_url&quot;] = elem.find(&quot;a&quot;, {&quot;class&quot;: &quot;jobLink&quot;})[&quot;href&quot;]
-        except AttributeError:
-            data_dict[&quot;job_url&quot;] = None
 
-        data_list.append(data_dict)
-        data_dict = {}
-    # put results in dataframe
-    data = pd.DataFrame(data_list)
-    # add column with job listing Id number
-    data = data.assign(
-        job_id=data.job_url.map(
-            lambda x: re.findall(pattern=&quot;jobListingId=[0-9]+&quot;, string=x)[0]
-        ).map(lambda x: x.strip(&quot;jobListingId=&quot;))
-    )
-    # add column with url
-    listing_base_url = f&quot;https://www.glassdoor.com/job-listing/?jl=&quot;
-    data = data.assign(
-        url=data.job_id.map(lambda x: listing_base_url + str(x))
-    )
 
-    return data
-</code></pre>
-<h3 id="text-preprocessing">Text Preprocessing</h3>
+<a id="functions.get_page"></a>
+    <div class="doc doc-contents first">
+
+            <details class="quote">
+              <summary>Source code in <code>functions.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_page</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BeautifulSoup</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+        <span class="n">page</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">soup</span>
+    <span class="k">except</span> <span class="n">HTTPError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error opening page </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="functions.get_jobs"></a>
+    <div class="doc doc-contents first">
+
+            <details class="quote">
+              <summary>Source code in <code>functions.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_jobs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="c1"># load webpage using Beautifulsoup first</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">get_page</span><span class="p">()</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;table&quot;</span><span class="p">)</span>
+    <span class="n">table_rows</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;tr&quot;</span><span class="p">)</span>
+
+    <span class="n">data_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">data_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># loop through table rows and extract information to dictionary</span>
+    <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">table_rows</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;company&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;td&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;company&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">text</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;company&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;job_title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;td&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;job_title&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">text</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;job_title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;job_url&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;jobLink&quot;</span><span class="p">})[</span><span class="s2">&quot;href&quot;</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;job_url&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_dict</span><span class="p">)</span>
+        <span class="n">data_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="c1"># put results in dataframe</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_list</span><span class="p">)</span>
+    <span class="c1"># add column with job listing Id number</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span>
+        <span class="n">job_id</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">job_url</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+            <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;jobListingId=[0-9]+&quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;jobListingId=&quot;</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="c1"># add column with url</span>
+    <span class="n">listing_base_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://www.glassdoor.com/job-listing/?jl=&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span>
+        <span class="n">url</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">job_id</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">listing_base_url</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">data</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div><h3 id="text-preprocessing">Text Preprocessing</h3>
 <p>In order to proceed with sentiment analysis, I first had to do some text preprocessing: remove punctuation, numbers and stop words. When working on NLP projects, I am usually a big fan of the NLTK library, but this time I wanted to try out TextBlob. Cleaning text data can be as simple as the below line of code:</p>
 <pre><code class="language-python"># assign new clean review column
 df = df.assign(clean_review = df.reviews.map(lambda x: ' '.join(TextBlob(str(x)).words)))
@@ -710,7 +828,8 @@ df = df.assign(clean_review = df.reviews.map(lambda x: ' '.join(TextBlob(str(x))
 <pre><code class="language-python"># Remove stopwords &amp; lowercase
 df.clean_review = df.clean_review.map(lambda x: &quot; &quot;.join([i.lower() for i in x.split() if i not in stopwords.words('english')]))
 </code></pre>
-<h3 id="data-exploration-visualization">Data Exploration &amp; Visualization</h3>
+<p><a id="dataexploration"></a></p>
+<h2 id="data-exploration-visualization">Data Exploration &amp; Visualization</h2>
 <p>Once the data is cleaned I can finally move on to the fun part, visualizations! I wanted to create a word cloud of the most frequent words in the reviews, so I created word counts:</p>
 <pre><code class="language-python"># collect words
 word_list = []
@@ -721,66 +840,119 @@ word_list = [item for row in word_list for item in row if item !='reviews']
 word_counts = Counter(word_list)
 </code></pre>
 <p>And what words appear the most?
-"good", "work", "people", "great", "benefits", "culture", "balance", "pay", "management", "life" are all among the top 10 most common words in the dataset. This isnt surprising, I think it represents what most people are looking for in a good work environment. </p>
+<b>"good", "work", "people", "great", "benefits", "culture", "balance", "pay", "management", "life"</b> are all among the top 10 most common words in the dataset. This isnt surprising, I think it represents what most people are looking for in a good work environment. </p>
 <h4 id="wordclouds">WordClouds</h4>
 <p>Creating wordcloud visualizations are pretty straightforward once you have the word counts:</p>
-<pre><code class="language-python"># Wordcloud
-wordcloud = WordCloud(width = 300,
-                      height = 300,
-                      background_color='white',
-                      max_font_size=50, max_words=150)
 
-wordcloud = wordcloud.generate_from_frequencies(word_counts)
 
-# plot words
-plt.figure(figsize=(6,4),facecolor = 'white', edgecolor='blue')
-plt.imshow(wordcloud, interpolation=&quot;bilinear&quot;)
-plt.axis(&quot;off&quot;)
-plt.tight_layout(pad=0)
-plt.title(&quot;Top Glassdoor.com words&quot;)
-plt.savefig(&quot;review_wordcloud.png&quot;)
-plt.show()
-</code></pre>
-<p><img alt="review_wordcloud" src="../review_wordcloud.png" /></p>
+<div class="doc doc-object doc-function">
+
+
+
+<a id="functions.plot_wordcloud"></a>
+    <div class="doc doc-contents first">
+
+            <details class="quote">
+              <summary>Source code in <code>functions.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">plot_wordcloud</span><span class="p">(</span><span class="n">word_counts</span><span class="p">:</span> <span class="n">List</span><span class="p">):</span>
+    <span class="n">wordcloud</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
+                        <span class="n">height</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
+                        <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+                        <span class="n">max_font_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">max_words</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+
+    <span class="n">wordcloud</span> <span class="o">=</span> <span class="n">wordcloud</span><span class="o">.</span><span class="n">generate_from_frequencies</span><span class="p">(</span><span class="n">word_counts</span><span class="p">)</span>
+
+    <span class="c1"># plot words</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">wordcloud</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;bilinear&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Top Glassdoor.com words&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;review_wordcloud.png&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div><p><img alt="review_wordcloud" src="../review_wordcloud.png" /></p>
 <hr />
+<p><a id="sentiment-textblob"></a></p>
 <h2 id="sentiment-analysis-using-textblob-polarity-and-subjectivity">Sentiment Analysis using TextBlob Polarity and Subjectivity</h2>
 <p>TextBlob provides the ability to look at sentiment analysis by breaking it down into polarity and subjectivity:</p>
 <ul>
-<li>Polarity is between -1 and 1: it identifies the most negative as -1 and positive as +1</li>
-<li>Subjectivity is between 0 and 1 and shows the amount of personal opinion: 0 is very objective while 1 is subjective</li>
-<li>TextBlob allows us to see the sentiment for each word using sentiment_assessment, so we can get a better understanding of how words are scored</li>
+<li>Polarity is <b>between -1 and 1</b>: it identifies the <em>most negative as -1</em> and <em>positive as +1</em></li>
+<li>Subjectivity is <b>between 0 and 1</b> and shows the <em>amount of personal opinion</em>: 0 is very objective while 1 is subjective</li>
+<li>TextBlob allows us to see the sentiment for each word using <code>sentiment_assessment</code>, so we can get a better understanding of how words are scored</li>
 </ul>
 <p>Finding the polarity and subjectivity in a string using TextBlob can be done in a few lines of code:</p>
-<pre><code class="language-python">sample_string = df.clean_review.iloc[0]
-# polarity &amp; subjectivity:
-print(f&quot;Sample Review:\n{sample_string}\nTextBlob polarity:{TextBlob(sample_string).sentiment.polarity}&quot;
-      f&quot; and subjectivity:{TextBlob(sample_string).subjectivity}&quot;)
 
-# we can see the sentiment assessment of each word in our sample sentence
-TextBlob(sample_string).sentiment_assessments[2]
-</code></pre>
-<p>python output:</p>
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="functions.print_polarity_subjectivity"></a>
+    <div class="doc doc-contents first">
+
+            <details class="quote">
+              <summary>Source code in <code>functions.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">print_polarity_subjectivity</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">sample_string</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">clean_review</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">polarity</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">sample_string</span><span class="p">)</span><span class="o">.</span><span class="n">sentiment</span><span class="o">.</span><span class="n">polarity</span>
+    <span class="n">subjectivity</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">sample_string</span><span class="p">)</span><span class="o">.</span><span class="n">subjectivity</span>
+    <span class="c1"># polarity &amp; subjectivity:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sample Review:</span><span class="se">\n</span><span class="si">{</span><span class="n">sample_string</span><span class="si">}</span><span class="se">\n</span><span class="s2">TextBlob polarity:</span><span class="si">{</span><span class="n">polarity</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot; and subjectivity:</span><span class="si">{</span><span class="n">subjectivity</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div><p>Here is an example output:</p>
 <p>Sample Review with 4.1 stars:
-<em>good place retire since benefits good willing sacrifice salary/growth reviews great culture open learning environment reviews nice people work reviews very flexible good work life balance reviews good pay good hours reviews long hours culture staying late reviews difficult maintain good work/life balance reviews bad pay promotion hard get reviews
-TextBlob polarity:0.26 and subjectivity:0.63</em></p>
-<p>Note: the above sample review is cleaned: it has stopwords removed, no numbers and stripped whitespaces.</p>
+*good place retire since benefits good willing sacrifice salary/growth reviews great culture open learning environment reviews nice people work reviews very flexible good work life balance reviews good pay good hours reviews long hours culture staying late reviews difficult maintain good work/life balance reviews bad pay promotion hard get reviews</p>
+<p><b>TextBlob polarity:0.26 and subjectivity:0.63</b></p>
+<p>A quick note, the above sample review was preprocessed, that is, it has stopwords removed, no numbers and stripped whitespaces.</p>
+<p>To view the sentiment assessment of each word in our sample sentence:
+<code>TextBlob(sample_string).sentiment_assessments[2]</code></p>
 <p>Part of the sentiment assessment looks like this. It returns a tuple with (polarity, subjectivity, assessments). We see more negative words "bad", "difficult" and "hard" have negative polarity.</p>
-<p>[(['good'], 0.7, 0.60, None),
- (['willing'], 0.25, 0.75, None),
- (['great'], 0.8, 0.75, None),
- (['open'], 0.0, 0.5, None),
- (['nice'], 0.6, 1.0, None),
- (['long'], -0.05, 0.4, None),
- (['late'], -0.3, 0.6, None),
- (['difficult'], -0.5, 1.0, None),
- (['bad'], -0.699, 0.66, None),
- (['hard'], -0.29, 0.54, None)]</p>
-<p>.... So far so good, it looks like TextBlob assigns a more positive sentiment score to the first review which makes sense and also aligns with the number of stars on glassdoor.com.</p>
+<p><b>
+[(['good'], 0.7, 0.60, None),
+<br>(['willing'], 0.25, 0.75, None), 
+<br>(['great'], 0.8, 0.75, None),
+<br>(['open'], 0.0, 0.5, None),
+<br>(['nice'], 0.6, 1.0, None),
+<br>(['long'], -0.05, 0.4, None),
+<br>(['late'], -0.3, 0.6, None),
+<br>(['difficult'], -0.5, 1.0, None),
+<br>(['bad'], -0.699, 0.66, None),
+<br>(['hard'], -0.29, 0.54, None)]</b></p>
+<p>So far so good, it looks like TextBlob assigns a more positive sentiment score to the first review which makes sense and also aligns with the number of stars on glassdoor.com.</p>
 <h3 id="but-can-we-trust-stars-given-in-reviews">But can we trust stars given in reviews?</h3>
 <ul>
 <li>After plotting polarity and stars, we can see that polarity should be increasing as stars increase but this is not the case.</li>
 <li>Polarity is higher for 3.75 star rated reviews than for reviews with 4.0 stars. This is inconsistent with what we would expect.</li>
-<li>We also see the review for the "worse" rating of 3.1 does not correspond to a negative review</li>
+<li>We also see the review for the <strong>worse</strong> rating of 3.1 does not correspond to a negative review</li>
 </ul>
 <pre><code class="language-python"># let's find worse review
 worse_stars = df.stars.min()
@@ -803,15 +975,17 @@ print(f&quot;\nBut TextBlob indicates it has {w_polarity} polarity and {w_subjec
 For example, polarity is higher for 3.75 star rated reviews than for reviews with 4.0 stars.</p>
 <p><img alt="textblob_sentiments" src="../textblob_sentiments.png" /></p>
 <hr />
+<p><a id="sentiment-vader"></a></p>
 <h2 id="vader-and-sentiment-analysis">VADER and Sentiment Analysis</h2>
 <blockquote>
 <p>VADER Sentiment Analysis. VADER (Valence Aware Dictionary and Sentiment Reasoner) is a lexicon and rule-based sentiment analysis tool that is specifically attuned to sentiments expressed in social media, and works well on texts from other domains.</p>
 </blockquote>
-<p>It’s important to understand the output VADER provides: it is a Python dictionary with keys ‘neg’, ‘neu’, ‘pos’ — which correspond to Negative, Neutral, and Positive. It also has a Compound score which is a score calculated by normalizing the other 3 scores (neg, neu, pos). This score tells us the intensity or degree of the sentiment and not the actual values. Its values range from -1 (for extreme negative sentiment) to +1 (for extreme positive sentiment).</p>
+<p>It’s important to understand the output VADER provides: 
+<br>it is a Python dictionary with keys <code>neg</code>, <code>neu</code>, <code>pos</code>’` — which correspond to <em>Negative, Neutral</em>, and <em>Positive</em>. It also has a <em>Compound score</em> which is a score calculated by normalizing the other 3 scores (neg, neu, pos). This score tells us the <em>intensity or degree of the sentiment and not the actual values</em>. Its values range from -1 <strong>for extreme negative sentiment</strong> to +1 <strong>for extreme positive sentiment</strong>.</p>
 <p>Using the compound score can be enough to determine the underlying sentiment of a text, because for:</p>
-<p>a positive sentiment, compound ≥ 0.05
-a negative sentiment, compound ≤ -0.05
-a neutral sentiment, the compound is between [-0.05, 0.05]</p>
+<p><br>a positive sentiment, <strong>compound ≥ 0.05</strong><br>
+a negative sentiment, <strong>compound ≤ -0.05</strong><br>
+a neutral sentiment, the <strong>compound is between [-0.05, 0.05]</strong><br></p>
 <pre><code class="language-python"># initialize sentiment analyzer
 sid_obj = SentimentIntensityAnalyzer()
 # going back to our sample string
@@ -820,12 +994,12 @@ sid_obj.polarity_scores(sample_string)
 </code></pre>
 <p>Here is our sample string:</p>
 <blockquote>
-<p>'good place retire since benefits good willing sacrifice salary/growth reviews great culture open learning environment reviews nice people work reviews very flexible good work life balance reviews good pay good hours reviews long hours culture staying late reviews difficult maintain good work/life balance reviews bad pay promotion hard get reviews'</p>
+<p>good place retire since benefits good willing sacrifice salary/growth reviews great culture open learning environment reviews nice people work reviews very flexible good work life balance reviews good pay good hours reviews long hours culture staying late reviews difficult maintain good work/life balance reviews bad pay promotion hard get reviews</p>
 </blockquote>
-<p>And the sentiment analyzer output:
-{'neg': 0.137, 'neu': 0.469, 'pos': 0.394, 'compound': 0.9646}</p>
-<p>Once we get all the compound, positive and negative scores we can plot them each against the stars given:</p>
-<p>Since compound scores greater than or equal to 0.5 are considered positive we should see a more linear relationship:</p>
+<p>And the sentiment analyzer output:<br>
+<code>{'neg': 0.137, 'neu': 0.469, 'pos': 0.394, 'compound': 0.9646}</code></p>
+<p>Once we get all the compound, positive and negative scores we can plot them each against the stars given.</p>
+<p>Since compound scores greater than or equal to 0.5 are considered positive we should see a more linear relationship in the below chart. We also notice that there is a dip in the compound score between 3.5 and 3.75 which is interesting.</p>
 <p><img alt="vader_compoundscores" src="../vader_compoundscores.png" /></p>
 <p>Here we see the positive scores vs. stars given: </p>
 <p><img alt="vader_pos_scores" src="../vader_pos_scores.png" /></p>

@@ -10,23 +10,21 @@
         <meta name="author" content="Gaby Agrocostea">
       
       
-        <link rel="canonical" href="https://gabya06.github.io/">
+        <link rel="canonical" href="https://gabya06.github.io/reddit_api/readme/">
       
       
       
-        <link rel="next" href="glassdoor_reviews/readme/">
       
-      
-      <link rel="icon" href="images/selfie_2023.png">
+      <link rel="icon" href="../../images/selfie_2023.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
       
-        <title>Gaby's Data Science Portfolio</title>
+        <title>Reddit API data pull using PRAW - Gaby's Data Science Portfolio</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
       
       
 
@@ -45,9 +43,9 @@
       
     
     
-      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -66,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-gabys-data-science-portfolio" class="md-skip">
+        <a href="#reddit-api-data-pull-using-praw" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Gaby&#39;s Data Science Portfolio" class="md-header__button md-logo" aria-label="Gaby's Data Science Portfolio" data-md-component="logo">
+    <a href="../.." title="Gaby&#39;s Data Science Portfolio" class="md-header__button md-logo" aria-label="Gaby's Data Science Portfolio" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -102,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Reddit API data pull using PRAW
             
           </span>
         </div>
@@ -152,7 +150,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Gaby&#39;s Data Science Portfolio" class="md-nav__button md-logo" aria-label="Gaby's Data Science Portfolio" data-md-component="logo">
+    <a href="../.." title="Gaby&#39;s Data Science Portfolio" class="md-nav__button md-logo" aria-label="Gaby's Data Science Portfolio" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -179,30 +177,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Home
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -211,44 +189,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#about-me" class="md-nav__link">
-    <span class="md-ellipsis">
-      About me
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#current-projects" class="md-nav__link">
-    <span class="md-ellipsis">
-      Current Projects
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -295,7 +235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="glassdoor_reviews/readme/" class="md-nav__link">
+      <a href="../../glassdoor_reviews/readme/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -316,7 +256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="genre_predictions/readme/" class="md-nav__link">
+      <a href="../../genre_predictions/readme/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -337,7 +277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ensemble/readme/" class="md-nav__link">
+      <a href="../../ensemble/readme/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -365,7 +305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="about/" class="md-nav__link">
+      <a href="../../about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -405,18 +345,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#about-me" class="md-nav__link">
+  <a href="#project-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      About me
+      Project Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#current-projects" class="md-nav__link">
+  <a href="#getting-started-with-praw" class="md-nav__link">
     <span class="md-ellipsis">
-      Current Projects
+      Getting Started with PRAW
     </span>
   </a>
   
@@ -440,13 +380,69 @@
   
 
 
-<h1 id="welcome-to-gabys-data-science-portfolio">Welcome to Gaby's Data Science Portfolio</h1>
-<h2 id="about-me">About me</h2>
-<p>I'm currenly working a data scientist &amp; machine learning engineer in the tech industry. I also teach data science, python, machine learning and SQL to both beginner and advanced students. As a consultant and mentor, I guide junior data scientists on their journey.</p>
-<p>I have a passion for writing blogs about latest developments in data science and machine learning, sharing insights from my current and past projects, and discussing my experiences in teaching and mentoring. Sharing knowledge is something I deeply enjoy! 
-You can find my blog posts on <a href="https://medium.com/@gabya06">medium.com/gabya06</a> </p>
-<h2 id="current-projects">Current Projects</h2>
-<p>This site serves as a hub for my current and past data science projects.</p>
+<h1 id="reddit-api-data-pull-using-praw">Reddit API data pull using PRAW</h1>
+<h3 id="project-overview">Project Overview</h3>
+<p>The goal of this project was to learn how to pull Reddit data using the python package PRAW. In particular, I am interested in learning how Reddit users are feeling about New York City Apartment Rentals. There is a subgroup called NYC Apartments and the goal is to pull user posts and comments to gage how they feel (this will part 2 of this post). </p>
+<p>I wrote an article on my page on <a href="https://medium.com/@gabya06/automating-reddit-summaries-pulling-data-with-python-91afeb6acdb3">medium.com</a> and I also wanted to share the jupyter notebook.</p>
+<p>Once I have extracted Reddit posts and comments, the next step in this project is to use pre-trained models on Hugging Face and categorize sentiments to understand how Reddit users feel about renting apartments in New York City. Lastly, the 3rd part of this project will be to use OpenAI to summarize posts and comments. </p>
+<h3 id="getting-started-with-praw">Getting Started with PRAW</h3>
+<p>PRAW stands for Python Reddit API Wrapper and that's exactly what it is. Although I was a bit intimidated initially, using it turned out to be quite easy. To start, I had to create a <a href="https://www.reddit.com/prefs/apps">Reddit App</a> to create a <code>client_id</code> and <code>client_secret</code> - which I saved in a credential file. Simple enough, right? </p>
+<p>After this, I had to install PRAW:</p>
+<pre><code class="language-bash">pip install praw
+</code></pre>
+<p>To establish a connection, use the credentials from your Reddit app:</p>
+<pre><code class="language-python"># Connect to Reddit API using PRAW
+reddit = praw.Reddit(
+    client_id=client_id,
+    client_secret=client_secret,
+    password=client_password,
+    user_agent=user_agent,
+    username=user_name,
+)
+</code></pre>
+<p>And that's it! On to pulling data! As I mentioned, I am interested in the NYC Apartment subreddit. It is called ''. To pull data, I have to create an instance:</p>
+<pre><code class="language-python"># Create an instance of NYCapartments subreddit
+sub_reddit = reddit.subreddit(&quot;NYCapartments&quot;)
+</code></pre>
+<p>With PRAW, we can easily grab posts by week, month or year. In this example, I wanted to just grab the top 5 posts from the past week to understand how the data is returned. The below code returns the post title, upvotes (score) and comments. </p>
+<pre><code class="language-python"># Get the top 5 posts from the past week
+weekly_posts = sub_reddit.top(time_filter='week', limit=5)
+
+# Print post titles, scores and comments
+for post in weekly_posts:
+    print(f'Post title: {post.title}')
+    print(f'Post upvotes: {post.score}')
+    print(f'Post comments: {post.comments}')
+    print()
+</code></pre>
+<p>Here is what a sample output looks like:</p>
+<pre><code>Post title: Looking for roommates to fill $1667 rooms in Park Slope
+Post upvotes: 279
+Post comments: &lt;praw.models.comment_forest.CommentForest object at 0x28d081790&gt;
+
+Post title: Age discrimination in NYC rentals?
+Post upvotes: 113
+Post comments: &lt;praw.models.comment_forest.CommentForest object at 0x28d1f4d90&gt;
+</code></pre>
+<p>Interestingly, <code>post.comments</code> returns an object called <code>comment_forest</code>. In order to see the actual comments, we need to further be processed this, but it's not too difficult. I created a list to store all comments and iterated through the comments. For each post, I created a post dictionary with the comments:</p>
+<pre><code class="language-python"># Pull posts from last year NYCapartments subreddit
+post_list = []
+
+for post in subrreddit:
+    post_dict = {}
+    post_comments = []
+    # Retrieve full comments, including nested ones
+    post.comments.replace_more(limit=None)
+    for top_level_comment in post.comments:
+        post_comments.append(top_level_comment.body)
+    post_dict['comments'] = post_comments
+    post_list.append(post_dict)
+
+result_df = pd.DataFrame(post_list)    
+</code></pre>
+<p>Note the use of <code>replace_more</code> to retrieve all comments, including nested ones. This ensures you don’t miss out on any key discussion points. You can find the documentation <a href="https://praw.readthedocs.io/en/stable/tutorials/comments.html">here</a>.</p>
+<p>Here is what the data looks like:</p>
+<p><img alt="data" src="../data.png" /></p>
 
 
 
@@ -493,10 +489,10 @@ You can find my blog posts on <a href="https://medium.com/@gabya06">medium.com/g
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
     
   </body>
