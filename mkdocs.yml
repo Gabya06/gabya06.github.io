@@ -15,6 +15,9 @@ theme:
   font:
     text: Calibri
   name: material #lux #darkly #dracula #material
+  features:
+      - navigation.top
+  #   - navigation.sections  
   favicon: images/selfie_2023.png
 # Page tree: refer to mkdocs documentation
 nav:
@@ -25,6 +28,7 @@ nav:
   - "Sentiment Analysis on Glassodoor Reviews": glassdoor_reviews/readme.md
   - "Predicting Movie Genres using Machine Learning": genre_predictions/readme.md
   - "Ensemble Models for Price Forecasting": ensemble/readme.md
+  - "Mastering Interactive Data Visualizations with Streamlit": streamlit_app/readme.md
 - About: about.md
 
 plugins:
@@ -34,6 +38,12 @@ plugins:
           options:
             docstring_style: numpy # or numpy, etc.
             show_source: true
+  - mkdocs-video:
+      is_video: True
+      video_muted: True
+      video_controls: True
+      css_style:
+        width: "75%"
 
 markdown_extensions:
   - pymdownx.highlight:

@@ -1,3 +1,8 @@
+---
+hide:
+#   - navigation
+  - toc
+---
 
 # Predicting Movie Genres using Machine Learning Models and Semantic Textual Similarity
 

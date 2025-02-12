@@ -1,3 +1,9 @@
+---
+hide:
+#   - navigation
+  - toc
+---
+
 # Reddit API: Analyzing NYC Apartment Engagement with Python
 
 ![reddit](reddit_pic.png)
@@ -27,7 +33,7 @@ pip install praw
 
 To establish a connection, use the credentials from your Reddit app:
 
-``` python
+```py linenums="1"
 # Connect to Reddit API using PRAW
 reddit = praw.Reddit(
     client_id=client_id,
@@ -49,7 +55,7 @@ sub_reddit = reddit.subreddit("NYCapartments")
 ### 2. Filtering Top Posts from Last Week
 With PRAW, we can easily grab posts by week, month or year. In this example, I wanted to just grab the top 5 posts from the past week to understand how the data is returned. The below code returns the post title, upvotes (score) and comments. 
 
-``` python
+``` py linenums="1"
 # Get the top 5 posts from the past week
 weekly_posts = sub_reddit.top(time_filter='week', limit=5)
 
@@ -77,7 +83,7 @@ Post comments: <praw.models.comment_forest.CommentForest object at 0x28d1f4d90>
 ### 3. Extracting and Analyzing Post Data
 Interestingly, `post.comments` returns an object called `comment_forest`. In order to see the actual comments, we need to further process this, but it's not too difficult. To do this, I created a list to store all comments and iterated through the comments. For each post, I created a post dictionary with the comments:
 
-```python
+```py linenums="1"
 # Pull posts from last year NYCapartments subreddit
 post_list = []
 

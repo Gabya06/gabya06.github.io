@@ -1,4 +1,12 @@
+---
+hide:
+#   - navigation
+  - toc
+---
+
 # Sentiment Analysis of Data Science Job Reviews on Glassdoor
+
+![pic1](pic1.png)
 
 ## Project Overview
 The goal of this project was to scrape data science job reviews from glassdoor.com and analyze company reviews. I wanted to perform **sentiment analysis** to understand what users were writing, and to investigate how the number of stars given to a company related to the sentiment in the review. 

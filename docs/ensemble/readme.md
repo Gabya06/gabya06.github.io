@@ -1,4 +1,12 @@
-# Ensemble regression models for price forecasting
+---
+hide:
+#   - navigation
+  - toc
+---
+
+# Ensemble Regression Models for Price Forecasting
+
+![pic6](pic6.png)
 
 ## Project Overview
 Ensemble methods are very popular and effective methods in machine learning, and in this post I'm going to illustrate how to _forecast prices using ensemble learning_.
@@ -15,7 +23,7 @@ While time series and regression models work well on their own, when combining t
 
 
 <a id="basics"></a>
-##What are ensemble models?
+### 1. What are ensemble models?
 
 Ensemble models combine predictions from other simpler models to produce better predictions. There are two types of ensemble methods:
 
@@ -43,7 +51,7 @@ Below is a basic workflow of how models could feed base predictions to an ensemb
 ![pic2](pic2.png)
 
 <a id="code"></a>
-## 2. Python Code for Ensembles Using Scikit-Learn
+### 2. Python Code for Ensembles Using Scikit-Learn
 
 The scikit-learn python machine learning library provides Gradient Boosting ensembles methods for both [classification](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html) and [regression](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html) problems.
 
@@ -87,7 +95,7 @@ In scikit-learn we see these parameters:
 ---
 
 <a id="regression"></a>
-## 3. Ensemble Regression Use Case for Price Forecasting
+### 3. Ensemble Regression Use Case for Price Forecasting
 As a quick recap, we now have a better understanding of what ensemble models are: **decision trees combined** to produce **better predictions using averages** or weighted averages in the case of AdaBoost. Now, we can take a look at our use case for price prediction.
 
 For base models, I used several *linear regression models* as well as time series models. While linear regression models are **easy to fit**, **fast in runtime** and great for **understanding general trends**, they don't always capture granular changes. Time series models are good for repeating seasonal trends; however this can also be considered a disadvantage if the model holds on to trends longterm. Knowing this bit of information, it is useful to add a quick learner such as an LSTM model. Moreover, one can start to understand why it might be advantageous to combine the pros of these models somehow.

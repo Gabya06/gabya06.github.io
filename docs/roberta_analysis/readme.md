@@ -1,3 +1,9 @@
+---
+hide:
+#   - navigation
+  - toc
+---
+
 # Sentiment Analysis of Reddit Comments Using RoBERTa
 
 ![huggingface](pic1.png)
@@ -26,7 +32,7 @@ pip install transformers torch matplotlib
 
 And let's load the model and tokenizer:
 
-```python
+```py linenums="1"
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 model = AutoModelForSequenceClassification.from_pretrained("cardiffnlp/twitter-roberta-base-sentiment")  
@@ -38,7 +44,7 @@ This is dataset that is used in this project; it consists of 200 sample rows wit
 
 Let's take a sample comment:
 
-``` python
+``` py linenums="1"
 sample_comment = """
 I didn't live in one but I worked at an office in Hudson Yards on the 72nd floor and the view never got old.
 I got used to it. I never got tired of it.
@@ -60,7 +66,7 @@ To prepare the comment for RoBERTa, we need to convert it into a format the mode
 This means using the tokenizer to transform the text into numerical representations:
 
 
-``` python
+``` py linenums="1"
 encoded_comment = tokenizer(
     sample_comment,
     return_tensors='pt',
@@ -81,7 +87,7 @@ Let's take a closer look at what `encoded_comment` consists of:
 
 Next, let's make some predictions:
 
-``` python
+``` py linenums="1"
 import torch
 
 output = model(**encoded_comment)
@@ -97,7 +103,7 @@ SequenceClassifierOutput(loss=None, logits=tensor([[-1.9768,  0.1379,  2.0923]],
 ### 3. Interpreting Model Output
 The model returns **raw logits**, which must be converted into probabilities:
 
-``` python
+``` py linenums="1"
 import torch.nn.functional as F
 
 probs = F.softmax(logits, dim=1)
@@ -110,7 +116,7 @@ tensor([[0.0148, 0.1222, 0.8630]])
 ```
 
 As a final step, we need to map these probabilities to the sentiment labels:
-``` python
+``` py linenums="1"
 from transformers import AutoConfig
 
 config = AutoConfig.from_pretrained("cardiffnlp/twitter-roberta-base-sentiment")
@@ -124,7 +130,7 @@ For our sample, the prediction is *positive*!
 The model agrees with our initial classification. Although we’ve only classified one comment here, it’s always a good practice to verify model predictions against initial observations to see if they align with our intuition. While it’s not feasible to do this for all data, spot-checking a few predictions helps ensure the model’s results make sense.
 
 Once we have performed this across the entire data, we can sample some comments and print their sentiment and probabilities:
-``` python
+``` py linenums="1"
 for ix, row in data[['cleaned_text','sentiment','sentiment_prob']].sample(3).iterrows():
   print(f"{row['cleaned_text'][:200]}")
   print(f"Sentiment: {row['sentiment']}")
