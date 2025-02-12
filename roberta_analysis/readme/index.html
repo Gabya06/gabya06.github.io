@@ -153,6 +153,8 @@
           
             
               
+                
+              
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -456,6 +458,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../streamlit_app/readme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mastering Interactive Data Visualizations with Streamlit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -491,7 +514,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -596,8 +621,8 @@
   
 
 
-<h1 id="sentiment-analysis-of-reddit-comments-using-roberta">Sentiment Analysis of Reddit Comments Using RoBERTa</h1>
-<p><img alt="huggingface" src="../pic1.png" /></p>
+<div><h1 id="sentiment-analysis-of-reddit-comments-using-roberta">Sentiment Analysis of Reddit Comments Using RoBERTa</h1>
+<p><img alt="huggingface" src="../pic1.png"></p>
 <h2 id="project-overview">Project Overview</h2>
 <p>This project applies sentiment analysis to Reddit comments using <strong>RoBERTa</strong>, a powerful NLP model developed by Meta AI. RoBERTa is fine-tuned on millions of tweets and can be used to classify text as positive, neutral, or negative, making it well-suited for analyzing online discussions.
 RoBERTa is available on <strong>Hugging Face</strong>, a platform hosting 900k+ models, 200k+ datasets, and 300k+ demo applications, fostering collaboration in machine learning.</p>
@@ -616,83 +641,115 @@ RoBERTa is available on <strong>Hugging Face</strong>, a platform hosting 900k+ 
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>transformers<span class="w"> </span>torch<span class="w"> </span>matplotlib
 </span></code></pre></div>
 <p>And let's load the model and tokenizer:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoModelForSequenceClassification</span><span class="p">,</span> <span class="n">AutoTokenizer</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForSequenceClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;cardiffnlp/twitter-roberta-base-sentiment&quot;</span><span class="p">)</span>  
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;cardiffnlp/twitter-roberta-base-sentiment&quot;</span><span class="p">)</span>
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoModelForSequenceClassification</span><span class="p">,</span> <span class="n">AutoTokenizer</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForSequenceClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">"cardiffnlp/twitter-roberta-base-sentiment"</span><span class="p">)</span>  
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">"cardiffnlp/twitter-roberta-base-sentiment"</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
 <p>In the <a href="../../reddit_api/readme/">first post</a> of this, I extracted Reddit post and comments from the subreddit NYC Apartments. 
 This is dataset that is used in this project; it consists of 200 sample rows with over 8,000 comments.</p>
 <p>Let's take a sample comment:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">sample_comment</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="s2">I didn&#39;t live in one but I worked at an office in Hudson Yards on the 72nd floor and the view never got old.</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="s2">I got used to it. I never got tired of it.</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="s2">I got used to mine, but continued to vicariously live through other people when they saw it the first time.</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="s2">Impressed my girlfriend at the time enough to become my wife so all in all worth it.</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="s2">But after 6.5 years of a 6-floor walk-up, I&#39;m happy to be a ground-floor dweller now.</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="s2">It never gets old for me. Besides the view, I&#39;ve noticed my apartment is very quiet.</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="s2">There are no bugs or rodents that make it up this high, either. Totally worth it for me.</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="s2">&quot;&quot;&quot;</span>
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span>
+<span class="normal"><a href="#__codelineno-2-8">8</a></span>
+<span class="normal"><a href="#__codelineno-2-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">sample_comment</span> <span class="o">=</span> <span class="s2">"""</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="s2">I didn't live in one but I worked at an office in Hudson Yards on the 72nd floor and the view never got old.</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="s2">I got used to it. I never got tired of it.</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="s2">I got used to mine, but continued to vicariously live through other people when they saw it the first time.</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="s2">Impressed my girlfriend at the time enough to become my wife so all in all worth it.</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="s2">But after 6.5 years of a 6-floor walk-up, I'm happy to be a ground-floor dweller now.</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="s2">It never gets old for me. Besides the view, I've noticed my apartment is very quiet.</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="s2">There are no bugs or rodents that make it up this high, either. Totally worth it for me.</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="s2">"""</span>
+</span></code></pre></div></td></tr></table></div>
 <p>If I had to guess, I would classify this comment as positive — I see positive keywords like ‘positive’, ‘never gets old’, ‘no bugs’, ‘worth it’. 
 Let's use machine learning to classify it as positive, negative, or neutral.</p>
 <p><a id="roberta"></a></p>
 <h3 id="2-tokenize-the-text-and-model-prediction">2. Tokenize the Text and Model Prediction</h3>
 <p>To prepare the comment for RoBERTa, we need to convert it into a format the model understands. 
 This means using the tokenizer to transform the text into numerical representations:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">encoded_comment</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">sample_comment</span><span class="p">,</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">return_tensors</span><span class="o">=</span><span class="s1">&#39;pt&#39;</span><span class="p">,</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">max_length</span><span class="o">=</span><span class="mi">512</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">)</span>
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">encoded_comment</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>    <span class="n">sample_comment</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>    <span class="n">return_tensors</span><span class="o">=</span><span class="s1">'pt'</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a>    <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a>    <span class="n">max_length</span><span class="o">=</span><span class="mi">512</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
 <p>Note that I set <code>max_length</code> to 512 because this model can process <em>up to 512 tokens</em> at a time. 
 This limit ensures that our input fits within the model's capabilities.</p>
 <p>Let's take a closer look at what <code>encoded_comment</code> consists of:
-<img alt="pic2" src="../pic2.png" /></p>
+<img alt="pic2" src="../pic2.png"></p>
 <p><code>input_ids</code> represent the numerical values of the words in the text, and 
 <code>attention_mask</code> is a tensor with <strong>1's or 0's</strong> indicating which tokens should be <strong>attended</strong> to during processing.</p>
 <p>Next, let's make some predictions:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">torch</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="o">**</span><span class="n">encoded_comment</span><span class="p">)</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">logits</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">logits</span>
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="o">**</span><span class="n">encoded_comment</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">logits</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">logits</span>
+</span></code></pre></div></td></tr></table></div>
 <p>Here is an example of what <code>output</code> looks like - it contains the <strong>logits</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>SequenceClassifierOutput(loss=None, logits=tensor([[-1.9768,  0.1379,  2.0923]], grad_fn=&lt;AddmmBackward0&gt;), hidden_states=None, attentions=None)
-</span></code></pre></div></p>
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>SequenceClassifierOutput(loss=None, logits=tensor([[-1.9768,  0.1379,  2.0923]], grad_fn=&lt;AddmmBackward0&gt;), hidden_states=None, attentions=None)
+</span></code></pre></div>
 <p><a id="prediction"></a></p>
 <h3 id="3-interpreting-model-output">3. Interpreting Model Output</h3>
 <p>The model returns <strong>raw logits</strong>, which must be converted into probabilities:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">probs</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span>
-</span></code></pre></div>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">probs</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
 <p>Example output:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>tensor([[0.0148, 0.1222, 0.8630]])
-</span></code></pre></div></p>
-<p>As a final step, we need to map these probabilities to the sentiment labels:
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoConfig</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">config</span> <span class="o">=</span> <span class="n">AutoConfig</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;cardiffnlp/twitter-roberta-base-sentiment&quot;</span><span class="p">)</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">predicted_label_index</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Predicted sentiment is: </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">id2label</span><span class="p">[</span><span class="n">predicted_label_index</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># output</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1"># Predicted sentiment is positive</span>
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>tensor([[0.0148, 0.1222, 0.8630]])
 </span></code></pre></div>
+<p>As a final step, we need to map these probabilities to the sentiment labels:
+</p><div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span>
+<span class="normal"><a href="#__codelineno-8-6">6</a></span>
+<span class="normal"><a href="#__codelineno-8-7">7</a></span>
+<span class="normal"><a href="#__codelineno-8-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoConfig</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="n">config</span> <span class="o">=</span> <span class="n">AutoConfig</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">"cardiffnlp/twitter-roberta-base-sentiment"</span><span class="p">)</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">predicted_label_index</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Predicted sentiment is: </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">id2label</span><span class="p">[</span><span class="n">predicted_label_index</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="c1"># output</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="c1"># Predicted sentiment is positive</span>
+</span></code></pre></div></td></tr></table></div>
 For our sample, the prediction is <em>positive</em>! 
-The model agrees with our initial classification. Although we’ve only classified one comment here, it’s always a good practice to verify model predictions against initial observations to see if they align with our intuition. While it’s not feasible to do this for all data, spot-checking a few predictions helps ensure the model’s results make sense.</p>
+The model agrees with our initial classification. Although we’ve only classified one comment here, it’s always a good practice to verify model predictions against initial observations to see if they align with our intuition. While it’s not feasible to do this for all data, spot-checking a few predictions helps ensure the model’s results make sense.
 <p>Once we have performed this across the entire data, we can sample some comments and print their sentiment and probabilities:
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">for</span> <span class="n">ix</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;cleaned_text&#39;</span><span class="p">,</span><span class="s1">&#39;sentiment&#39;</span><span class="p">,</span><span class="s1">&#39;sentiment_prob&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;cleaned_text&#39;</span><span class="p">][:</span><span class="mi">200</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sentiment: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;sentiment&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Probability: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;sentiment_prob&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-</span></code></pre></div></p>
+</p><div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">for</span> <span class="n">ix</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[[</span><span class="s1">'cleaned_text'</span><span class="p">,</span><span class="s1">'sentiment'</span><span class="p">,</span><span class="s1">'sentiment_prob'</span><span class="p">]]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a>  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'cleaned_text'</span><span class="p">][:</span><span class="mi">200</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a>  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sentiment: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'sentiment'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a>  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Probability: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'sentiment_prob'</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
 <p>Here are the sample results (up to 200 characters):
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>congratulations what site did you use for a rent stabilized place? my first place in nyc 10 years ago was a room with 4 other roommates in a walk up. fast forward 10 years and my dream apartment (also
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>congratulations what site did you use for a rent stabilized place? my first place in nyc 10 years ago was a room with 4 other roommates in a walk up. fast forward 10 years and my dream apartment (also
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Sentiment: positive
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>Probability: 0.929
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
@@ -703,7 +760,7 @@ The model agrees with our initial classification. Although we’ve only classifi
 </span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>bring back mitchell llama and public housing developments, if the private sector won’t build, swing the pendulum back to the public sector.  watch the prices drop as supply returns. i have very little
 </span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>Sentiment: neutral
 </span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>Probability: 0.535
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p><a id="vis"></a></p>
 <h3 id="4-visualization">4. Visualization</h3>
 <p>To get a clearer view of our sentiment analysis results, let’s plot a few charts</p>
@@ -712,11 +769,11 @@ The model agrees with our initial classification. Although we’ve only classifi
 <li>Sentiment distribution - a big majority of comments are negative</li>
 <li>Sentiment probability distributions: positive and negative are wider ranging and neutral is smallest</li>
 </ul>
-<p><img alt="pic4" src="../pic4.png" /></p>
-<hr />
+<p><img alt="pic4" src="../pic4.png"></p>
+<hr>
 <h3 id="resources">Resources:</h3>
 <p><a href="https://huggingface.co/">HuggingFace</a>
-<a href="https://medium.com/@hunter-j-phillips/a-simple-introduction-to-softmax-287712d69bac">Soft Max</a></p>
+<a href="https://medium.com/@hunter-j-phillips/a-simple-introduction-to-softmax-287712d69bac">Soft Max</a></p></div>
 
 
 
@@ -724,8 +781,13 @@ The model agrees with our initial classification. Although we’ve only classifi
 
 
 
+  
+  
 
 
+
+
+  
 
 
 
@@ -736,6 +798,12 @@ The model agrees with our initial classification. Although we’ve only classifi
           
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -763,7 +831,7 @@ The model agrees with our initial classification. Although we’ve only classifi
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>

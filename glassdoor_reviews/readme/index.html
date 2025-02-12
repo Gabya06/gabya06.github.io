@@ -153,6 +153,8 @@
           
             
               
+                
+              
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -552,6 +554,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../streamlit_app/readme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mastering Interactive Data Visualizations with Streamlit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -587,7 +610,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -788,7 +813,8 @@
   
 
 
-<h1 id="sentiment-analysis-of-data-science-job-reviews-on-glassdoor">Sentiment Analysis of Data Science Job Reviews on Glassdoor</h1>
+<div><h1 id="sentiment-analysis-of-data-science-job-reviews-on-glassdoor">Sentiment Analysis of Data Science Job Reviews on Glassdoor</h1>
+<p><img alt="pic1" src="../pic1.png"></p>
 <h2 id="project-overview">Project Overview</h2>
 <p>The goal of this project was to scrape data science job reviews from glassdoor.com and analyze company reviews. I wanted to perform <strong>sentiment analysis</strong> to understand what users were writing, and to investigate how the number of stars given to a company related to the sentiment in the review. </p>
 <p>✽ For the complete blog, visit my page on <a href="https://medium.com/@gabya06/python-sentiment-analysis-using-textblob-and-vader-for-glassdoor-reviews-cc9632babb73">medium.com</a>. <br>
@@ -826,10 +852,10 @@
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="k">try</span><span class="p">:</span>
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="n">page</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a>        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a>        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="s2">"html.parser"</span><span class="p">)</span>
 </span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a>        <span class="k">return</span> <span class="n">soup</span>
 </span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="k">except</span> <span class="n">HTTPError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error opening page </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error opening page </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -888,8 +914,8 @@
 <span class="normal"><a href="#__codelineno-0-64">64</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="k">def</span> <span class="nf">get_jobs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 </span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25"></a>    <span class="c1"># load webpage using Beautifulsoup first</span>
 </span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="n">soup</span> <span class="o">=</span> <span class="n">get_page</span><span class="p">()</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27"></a>    <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;table&quot;</span><span class="p">)</span>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28"></a>    <span class="n">table_rows</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;tr&quot;</span><span class="p">)</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27"></a>    <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"table"</span><span class="p">)</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28"></a>    <span class="n">table_rows</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"tr"</span><span class="p">)</span>
 </span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29"></a>
 </span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="n">data_dict</span> <span class="o">=</span> <span class="p">{}</span>
 </span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="n">data_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -897,17 +923,17 @@
 </span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="c1"># loop through table rows and extract information to dictionary</span>
 </span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">table_rows</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
 </span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="k">try</span><span class="p">:</span>
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36"></a>            <span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;company&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;td&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;company&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">text</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36"></a>            <span class="n">data_dict</span><span class="p">[</span><span class="s2">"company"</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"td"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"class"</span><span class="p">:</span> <span class="s2">"company"</span><span class="p">})</span><span class="o">.</span><span class="n">text</span>
 </span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37"></a>        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38"></a>            <span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;company&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38"></a>            <span class="n">data_dict</span><span class="p">[</span><span class="s2">"company"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39"></a>        <span class="k">try</span><span class="p">:</span>
-</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40"></a>            <span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;job_title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;td&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;job_title&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">text</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40"></a>            <span class="n">data_dict</span><span class="p">[</span><span class="s2">"job_title"</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"td"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"class"</span><span class="p">:</span> <span class="s2">"job_title"</span><span class="p">})</span><span class="o">.</span><span class="n">text</span>
 </span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41"></a>        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42"></a>            <span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;job_title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42"></a>            <span class="n">data_dict</span><span class="p">[</span><span class="s2">"job_title"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43"></a>        <span class="k">try</span><span class="p">:</span>
-</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44"></a>            <span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;job_url&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;jobLink&quot;</span><span class="p">})[</span><span class="s2">&quot;href&quot;</span><span class="p">]</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44"></a>            <span class="n">data_dict</span><span class="p">[</span><span class="s2">"job_url"</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"class"</span><span class="p">:</span> <span class="s2">"jobLink"</span><span class="p">})[</span><span class="s2">"href"</span><span class="p">]</span>
 </span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45"></a>        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46"></a>            <span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;job_url&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46"></a>            <span class="n">data_dict</span><span class="p">[</span><span class="s2">"job_url"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47"></a>
 </span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_dict</span><span class="p">)</span>
 </span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49"></a>        <span class="n">data_dict</span> <span class="o">=</span> <span class="p">{}</span>
@@ -916,11 +942,11 @@
 </span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="c1"># add column with job listing Id number</span>
 </span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span>
 </span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54"></a>        <span class="n">job_id</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">job_url</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
-</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55"></a>            <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;jobListingId=[0-9]+&quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56"></a>        <span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;jobListingId=&quot;</span><span class="p">))</span>
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55"></a>            <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"jobListingId=[0-9]+"</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56"></a>        <span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"jobListingId="</span><span class="p">))</span>
 </span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57"></a>    <span class="p">)</span>
 </span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="c1"># add column with url</span>
-</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="n">listing_base_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://www.glassdoor.com/job-listing/?jl=&quot;</span>
+</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="n">listing_base_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://www.glassdoor.com/job-listing/?jl="</span>
 </span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span>
 </span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="n">url</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">job_id</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">listing_base_url</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="p">)</span>
@@ -933,11 +959,11 @@
 </div><h3 id="text-preprocessing">Text Preprocessing</h3>
 <p>In order to proceed with sentiment analysis, I first had to do some text preprocessing: remove punctuation, numbers and stop words. When working on NLP projects, I am usually a big fan of the NLTK library, but this time I wanted to try out TextBlob. Cleaning text data can be as simple as the below line of code:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># assign new clean review column</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">clean_review</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reviews</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">words</span><span class="p">)))</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">clean_review</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reviews</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">words</span><span class="p">)))</span>
 </span></code></pre></div>
 <p>In addition, I removed common words such "a", "an","the","in" which usually get ignored by typical tokenizers. These are called stopwords and NLTK includes a list of 40 stop words, but you can add more words and customize your own list of stopwords. </p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Remove stopwords &amp; lowercase</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">df</span><span class="o">.</span><span class="n">clean_review</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">clean_review</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">i</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)]))</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">df</span><span class="o">.</span><span class="n">clean_review</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">clean_review</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">i</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'english'</span><span class="p">)]))</span>
 </span></code></pre></div>
 <p><a id="dataexploration"></a></p>
 <h2 id="data-exploration-visualization">Data Exploration &amp; Visualization</h2>
@@ -952,7 +978,7 @@
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">word_list</span> <span class="o">=</span> <span class="p">[]</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">word_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">clean_review</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># flatten list of words - exclude the word reviews</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">word_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">word_list</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">row</span> <span class="k">if</span> <span class="n">item</span> <span class="o">!=</span><span class="s1">&#39;reviews&#39;</span><span class="p">]</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">word_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">word_list</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">row</span> <span class="k">if</span> <span class="n">item</span> <span class="o">!=</span><span class="s1">'reviews'</span><span class="p">]</span>
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># create counter - we want word frequencies</span>
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">word_counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">word_list</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
@@ -989,25 +1015,25 @@
 <span class="normal"><a href="#__codelineno-0-82">82</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="k">def</span> <span class="nf">plot_wordcloud</span><span class="p">(</span><span class="n">word_counts</span><span class="p">:</span> <span class="n">List</span><span class="p">):</span>
 </span><span id="__span-0-68"><a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="n">wordcloud</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
 </span><span id="__span-0-69"><a id="__codelineno-0-69" name="__codelineno-0-69"></a>                        <span class="n">height</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
-</span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70"></a>                        <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+</span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70"></a>                        <span class="n">background_color</span><span class="o">=</span><span class="s1">'white'</span><span class="p">,</span>
 </span><span id="__span-0-71"><a id="__codelineno-0-71" name="__codelineno-0-71"></a>                        <span class="n">max_font_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">max_words</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 </span><span id="__span-0-72"><a id="__codelineno-0-72" name="__codelineno-0-72"></a>
 </span><span id="__span-0-73"><a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="n">wordcloud</span> <span class="o">=</span> <span class="n">wordcloud</span><span class="o">.</span><span class="n">generate_from_frequencies</span><span class="p">(</span><span class="n">word_counts</span><span class="p">)</span>
 </span><span id="__span-0-74"><a id="__codelineno-0-74" name="__codelineno-0-74"></a>
 </span><span id="__span-0-75"><a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="c1"># plot words</span>
-</span><span id="__span-0-76"><a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-</span><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">wordcloud</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;bilinear&quot;</span><span class="p">)</span>
-</span><span id="__span-0-78"><a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+</span><span id="__span-0-76"><a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="n">facecolor</span> <span class="o">=</span> <span class="s1">'white'</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">)</span>
+</span><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">wordcloud</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">"bilinear"</span><span class="p">)</span>
+</span><span id="__span-0-78"><a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"off"</span><span class="p">)</span>
 </span><span id="__span-0-79"><a id="__codelineno-0-79" name="__codelineno-0-79"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</span><span id="__span-0-80"><a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Top Glassdoor.com words&quot;</span><span class="p">)</span>
-</span><span id="__span-0-81"><a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;review_wordcloud.png&quot;</span><span class="p">)</span>
+</span><span id="__span-0-80"><a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Top Glassdoor.com words"</span><span class="p">)</span>
+</span><span id="__span-0-81"><a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"review_wordcloud.png"</span><span class="p">)</span>
 </span><span id="__span-0-82"><a id="__codelineno-0-82" name="__codelineno-0-82"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div></td></tr></table></div>
             </details>
     </div>
 
-</div><p><img alt="review_wordcloud" src="../review_wordcloud.png" /></p>
-<hr />
+</div><p><img alt="review_wordcloud" src="../review_wordcloud.png"></p>
+<hr>
 <p><a id="sentiment-textblob"></a></p>
 <h2 id="sentiment-analysis-using-textblob-polarity-and-subjectivity">Sentiment Analysis using TextBlob Polarity and Subjectivity</h2>
 <p>TextBlob provides the ability to look at sentiment analysis by breaking it down into polarity and subjectivity:</p>
@@ -1039,8 +1065,8 @@
 </span><span id="__span-0-87"><a id="__codelineno-0-87" name="__codelineno-0-87"></a>    <span class="n">polarity</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">sample_string</span><span class="p">)</span><span class="o">.</span><span class="n">sentiment</span><span class="o">.</span><span class="n">polarity</span>
 </span><span id="__span-0-88"><a id="__codelineno-0-88" name="__codelineno-0-88"></a>    <span class="n">subjectivity</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">sample_string</span><span class="p">)</span><span class="o">.</span><span class="n">subjectivity</span>
 </span><span id="__span-0-89"><a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="c1"># polarity &amp; subjectivity:</span>
-</span><span id="__span-0-90"><a id="__codelineno-0-90" name="__codelineno-0-90"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sample Review:</span><span class="se">\n</span><span class="si">{</span><span class="n">sample_string</span><span class="si">}</span><span class="se">\n</span><span class="s2">TextBlob polarity:</span><span class="si">{</span><span class="n">polarity</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="__span-0-91"><a id="__codelineno-0-91" name="__codelineno-0-91"></a>        <span class="sa">f</span><span class="s2">&quot; and subjectivity:</span><span class="si">{</span><span class="n">subjectivity</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-90"><a id="__codelineno-0-90" name="__codelineno-0-90"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sample Review:</span><span class="se">\n</span><span class="si">{</span><span class="n">sample_string</span><span class="si">}</span><span class="se">\n</span><span class="s2">TextBlob polarity:</span><span class="si">{</span><span class="n">polarity</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="__span-0-91"><a id="__codelineno-0-91" name="__codelineno-0-91"></a>        <span class="sa">f</span><span class="s2">" and subjectivity:</span><span class="si">{</span><span class="n">subjectivity</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -1080,7 +1106,7 @@
 <span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
 <span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-3-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># let&#39;s find worse review</span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># let's find worse review</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">worse_stars</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">stars</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">worse_review</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">stars</span> <span class="o">==</span> <span class="n">df</span><span class="o">.</span><span class="n">stars</span><span class="o">.</span><span class="n">min</span><span class="p">()]</span><span class="o">.</span><span class="n">clean_review</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">worse_company</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">stars</span> <span class="o">==</span> <span class="n">worse_stars</span><span class="p">]</span><span class="o">.</span><span class="n">company</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -1088,8 +1114,8 @@
 </span></span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="hll"><span class="n">w_subjectivity</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">worse_review</span><span class="p">)</span><span class="o">.</span><span class="n">subjectivity</span>
 </span></span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a>
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="c1"># here we can see that this review is not bad: Textblob identifies it as more positive than negative based on polarity closer to 1</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">worse_company</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="n">worse_stars</span><span class="si">}</span><span class="s2"> has the worse review:</span><span class="se">\n</span><span class="si">{</span><span class="n">worse_review</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">But TextBlob indicates it has </span><span class="si">{</span><span class="n">w_polarity</span><span class="si">}</span><span class="s2"> polarity and </span><span class="si">{</span><span class="n">w_subjectivity</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">worse_company</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="n">worse_stars</span><span class="si">}</span><span class="s2"> has the worse review:</span><span class="se">\n</span><span class="si">{</span><span class="n">worse_review</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">But TextBlob indicates it has </span><span class="si">{</span><span class="n">w_polarity</span><span class="si">}</span><span class="s2"> polarity and </span><span class="si">{</span><span class="n">w_subjectivity</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
 <p>python output:</p>
 <p>Epic Pharma LLC with 3.1 has the worse review:</p>
@@ -1100,8 +1126,8 @@
 <h4 id="polarity-vs-subjectivity-chart">Polarity vs. Subjectivity Chart</h4>
 <p>When plotting polarity and subjectivity vs. stars given we see that polarity should be increasing as stars increase but that is not always the case. 
 For example, polarity is higher for 3.75 star rated reviews than for reviews with 4.0 stars.</p>
-<p><img alt="textblob_sentiments" src="../textblob_sentiments.png" /></p>
-<hr />
+<p><img alt="textblob_sentiments" src="../textblob_sentiments.png"></p>
+<hr>
 <p><a id="sentiment-vader"></a></p>
 <h2 id="vader-and-sentiment-analysis">VADER and Sentiment Analysis</h2>
 <blockquote>
@@ -1120,7 +1146,7 @@ a neutral sentiment, the <strong>compound is between [-0.05, 0.05]</strong><br><
 <span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># initialize sentiment analyzer</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">sid_obj</span> <span class="o">=</span> <span class="n">SentimentIntensityAnalyzer</span><span class="p">()</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># going back to our sample string</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># it has a high compound score! it&#39;s positive</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># it has a high compound score! it's positive</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="n">sid_obj</span><span class="o">.</span><span class="n">polarity_scores</span><span class="p">(</span><span class="n">sample_string</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Here is our sample string:</p>
@@ -1131,17 +1157,17 @@ a neutral sentiment, the <strong>compound is between [-0.05, 0.05]</strong><br><
 <code>{'neg': 0.137, 'neu': 0.469, 'pos': 0.394, 'compound': 0.9646}</code></p>
 <p>Once we get all the compound, positive and negative scores we can plot them each against the stars given.</p>
 <p>Since compound scores greater than or equal to 0.5 are considered positive we should see a <em>more linear relationship</em> in the below chart. We also notice that there is a <strong>dip</strong> in the <strong>compound score between 3.5 and 3.75</strong> which is interesting. To explore this further we could look at reviews with stars between 3.5 and 3.75 and look at word frequencies as well as compound scores.</p>
-<p><img alt="vader_compoundscores" src="../vader_compoundscores.png" /></p>
+<p><img alt="vader_compoundscores" src="../vader_compoundscores.png"></p>
 <p>Here we see the positive scores vs. stars given: </p>
-<p><img alt="vader_pos_scores" src="../vader_pos_scores.png" /></p>
+<p><img alt="vader_pos_scores" src="../vader_pos_scores.png"></p>
 <p>And lastly, here are the negative scores vs. stars given:
-<img alt="vader_neg_scores" src="../vader_neg_scores.png" /></p>
-<hr />
+<img alt="vader_neg_scores" src="../vader_neg_scores.png"></p>
+<hr>
 <h3 id="resources">Resources:</h3>
 <ul>
 <li><a href="https://textblob.readthedocs.io/en/dev/index.html">TextBlob</a></li>
 <li><a href="https://github.com/cjhutto/vaderSentiment">Vader</a></li>
-</ul>
+</ul></div>
 
 
 
@@ -1149,8 +1175,13 @@ a neutral sentiment, the <strong>compound is between [-0.05, 0.05]</strong><br><
 
 
 
+  
+  
 
 
+
+
+  
 
 
 
@@ -1161,6 +1192,12 @@ a neutral sentiment, the <strong>compound is between [-0.05, 0.05]</strong><br><
           
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -1188,7 +1225,7 @@ a neutral sentiment, the <strong>compound is between [-0.05, 0.05]</strong><br><
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
