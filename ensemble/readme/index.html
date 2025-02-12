@@ -30,6 +30,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
       
 
 
@@ -42,8 +45,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Calibri:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Calibri";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -59,7 +62,12 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="pink">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -111,8 +119,8 @@
       </div>
     </div>
     
+      
     
-      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
@@ -414,6 +422,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#what-are-ensemble-models" class="md-nav__link">
     <span class="md-ellipsis">
       What are ensemble models?
@@ -423,22 +449,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#scikit-learn-api-for-ensemble-methods" class="md-nav__link">
+  <a href="#2-python-code-for-ensembles-using-scikit-learn" class="md-nav__link">
     <span class="md-ellipsis">
-      Scikit-Learn API for Ensemble Methods
+      2. Python Code for Ensembles Using Scikit-Learn
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ensemble-regression-case-study" class="md-nav__link">
+  <a href="#3-ensemble-regression-use-case-for-price-forecasting" class="md-nav__link">
     <span class="md-ellipsis">
-      Ensemble Regression Case Study
+      3. Ensemble Regression Use Case for Price Forecasting
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Ensemble Regression Case Study">
+    <nav class="md-nav" aria-label="3. Ensemble Regression Use Case for Price Forecasting">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -518,6 +544,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#what-are-ensemble-models" class="md-nav__link">
     <span class="md-ellipsis">
       What are ensemble models?
@@ -527,22 +571,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#scikit-learn-api-for-ensemble-methods" class="md-nav__link">
+  <a href="#2-python-code-for-ensembles-using-scikit-learn" class="md-nav__link">
     <span class="md-ellipsis">
-      Scikit-Learn API for Ensemble Methods
+      2. Python Code for Ensembles Using Scikit-Learn
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ensemble-regression-case-study" class="md-nav__link">
+  <a href="#3-ensemble-regression-use-case-for-price-forecasting" class="md-nav__link">
     <span class="md-ellipsis">
-      Ensemble Regression Case Study
+      3. Ensemble Regression Use Case for Price Forecasting
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Ensemble Regression Case Study">
+    <nav class="md-nav" aria-label="3. Ensemble Regression Use Case for Price Forecasting">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -578,13 +622,17 @@
 
 
 <h1 id="ensemble-regression-models-for-price-forecasting">Ensemble regression models for price forecasting</h1>
+<h2 id="project-overview">Project Overview</h2>
 <p>Ensemble methods are very popular and effective methods in machine learning, and in this post I'm going to illustrate how to <em>forecast prices using ensemble learning</em>.</p>
 <p>While time series and regression models work well on their own, when combining these using ensemble methods we can get a better performing model and more accurate predictions for tomorrow's price values given historical data.</p>
-<p>In this post, I will cover:</p>
-<li> Ensemble methods basics and fundamentals</li>
-<li> Python code for ensembles using scikit-learn machine learning library</li>
-<li> Ensemble Regression use case for price forecasting</li>
-
+<p>✽ For the complete blog, visit my page on <a href="https://medium.com/@gabya06/ensemble-models-for-price-forecasting-2977c51adb69">medium.com</a>. <br></p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#basics">Ensemble Methods Basics and Fundamentals</a></li>
+<li><a href="#code">Python Code for Ensembles Using Scikit-Learn</a></li>
+<li><a href="#regression">Ensemble Regression Use Case for Price Forecasting</a></li>
+</ol>
+<p><a id="basics"></a></p>
 <h2 id="what-are-ensemble-models">What are ensemble models?</h2>
 <p>Ensemble models combine predictions from other simpler models to produce better predictions. There are two types of ensemble methods:</p>
 <p>1) <em>parallel</em> ensemble methods which combine independent learners to <em>reduce variance</em>
@@ -599,37 +647,52 @@
 <hr />
 <p>Below is a basic workflow of how models could feed base predictions to an ensemble learner which then would make final price predictions. In this illustration have chosen my base learners to be linear regression, moving averages, simple exponential smoothing and LSTM, but there are other models that could be used.</p>
 <p><img alt="pic2" src="../pic2.png" /></p>
-<h2 id="scikit-learn-api-for-ensemble-methods">Scikit-Learn API for Ensemble Methods</h2>
+<p><a id="code"></a></p>
+<h2 id="2-python-code-for-ensembles-using-scikit-learn">2. Python Code for Ensembles Using Scikit-Learn</h2>
 <p>The scikit-learn python machine learning library provides Gradient Boosting ensembles methods for both <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html">classification</a> and <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html">regression</a> problems.</p>
 <p>In the below example, after our import statements, we read the training data for our ensemble regressor - which is the output of our base model predictions - and then split the dataset into X and y.</p>
-<pre><code class="language-python"># import statements
-import pandas as pd
-from sklearn.ensemble import GradientBoostingRegressor
-
-# read csv file
-df = pd.read_csv(&quot;price_data.csv&quot;)
-</code></pre>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># import statements</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingRegressor</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1"># read csv file</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;price_data.csv&quot;</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
 <p><img alt="pic3" src="../pic3.png" /></p>
 <p>In this case, the ensemble model is defined using 500 estimators and uses Absolute Error as its loss function. It is then fit to our data with one simple line of code. The next line of code makes predictions on our training data.</p>
 <p>Please note that this is meant as a very simple example and that usually we need include additional steps into our modeling such as splitting the data into training and testing, <a href="https://scikit-learn.org/stable/modules/cross_validation.html">cross validation</a> and analyze various error metrics for performance.</p>
-<pre><code class="language-python"># define model - let's start with 500 estimators
-ensemble_regressor = GradientBoostingRegressor(random_state=23, loss='absolute_error',
-n_estimators=500)
-
-# fit the model
-ensemble_regressor.fit(X, y)
-
-# make predictions
-ensemble_preds = ensemble_regressor.predict(X)
-</code></pre>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span>
+<span class="normal"><a href="#__codelineno-1-8">8</a></span>
+<span class="normal"><a href="#__codelineno-1-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># define model - let&#39;s start with 500 estimators</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="hll"><span class="n">ensemble_regressor</span> <span class="o">=</span> <span class="n">GradientBoostingRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">23</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;absolute_error&#39;</span><span class="p">,</span>
+</span></span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="hll"><span class="n">n_estimators</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+</span></span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="c1"># fit the model</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="hll"><span class="n">ensemble_regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="c1"># make predictions</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="n">ensemble_preds</span> <span class="o">=</span> <span class="n">ensemble_regressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
 <p>There are multiple hyper parameters that can be tuned such as the loss function, learning rate, min samples split, max depth and others.</p>
 <p>The default loss function is squared error for regression, but we can chose from least absolute error, huber or quantile. The default criterion which measures the quality of a split is "friedman_mse" but we could have also picked "squared_error" instead.</p>
 <p>In scikit-learn we see these parameters:</p>
 <p><img alt="pic4" src="../pic4.png" /></p>
 <hr />
-<h2 id="ensemble-regression-case-study">Ensemble Regression Case Study</h2>
-<p>As a quick recap, we now have a better understanding of what ensemble models are: decision trees combined to produce better predictions using averages or weighted averages in the case of AdaBoost. Now, we can take a look at our use case for price prediction.</p>
-<p>For base models, I used several linear regression models as well as time series models. While linear regression models are easy to fit, fast in runtime and great for understanding general trends, they don't always capture granular changes. Time series models are good for repeating seasonal trends; however this can also be considered a disadvantage if the model holds on to trends longterm. Knowing this bit of information, it is useful to add a quick learner such as an LSTM model. Moreover, one can start to understand why it might be advantageous to combine the pros of these models somehow.</p>
+<p><a id="regression"></a></p>
+<h2 id="3-ensemble-regression-use-case-for-price-forecasting">3. Ensemble Regression Use Case for Price Forecasting</h2>
+<p>As a quick recap, we now have a better understanding of what ensemble models are: <strong>decision trees combined</strong> to produce <strong>better predictions using averages</strong> or weighted averages in the case of AdaBoost. Now, we can take a look at our use case for price prediction.</p>
+<p>For base models, I used several <em>linear regression models</em> as well as time series models. While linear regression models are <strong>easy to fit</strong>, <strong>fast in runtime</strong> and great for <strong>understanding general trends</strong>, they don't always capture granular changes. Time series models are good for repeating seasonal trends; however this can also be considered a disadvantage if the model holds on to trends longterm. Knowing this bit of information, it is useful to add a quick learner such as an LSTM model. Moreover, one can start to understand why it might be advantageous to combine the pros of these models somehow.</p>
 <hr />
 <p>Having cleaned and vectorized data, we split the data for each model into training and test data sets. In this example, linear regression models trained across different time periods (e.g: say we have two models, one trained on 3 months and one trained on 9 months), so we have to be careful about splitting our data accordingly for each model.</p>
 <p>Each model is trained and then makes predictions against the test data set. The ensemble model is consequently trained; the feature set consists of these base model predictions and the dependent variable y consists of the test data price values. Lastly the trained ensemble learner returns one target price for the interval forecast period of 30 days.</p>

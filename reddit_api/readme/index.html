@@ -30,6 +30,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
       
 
 
@@ -42,8 +45,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Calibri:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Calibri";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -59,7 +62,12 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="pink">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -111,8 +119,8 @@
       </div>
     </div>
     
+      
     
-      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
@@ -718,62 +726,62 @@
 <h3 id="1-setting-up-reddit-api-access">1. Setting up Reddit API Access</h3>
 <p>PRAW stands for Python Reddit API Wrapper and that's exactly what it is. Although I was a bit intimidated initially, using it turned out to be quite easy. To start, I had to create a <a href="https://www.reddit.com/prefs/apps">Reddit App</a> to create a <code>client_id</code> and <code>client_secret</code> - which I saved in a credential file. Simple enough, right? </p>
 <p>After this, I had to install PRAW:</p>
-<pre><code class="language-bash">pip install praw
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>praw
+</span></code></pre></div>
 <p>To establish a connection, use the credentials from your Reddit app:</p>
-<pre><code class="language-python"># Connect to Reddit API using PRAW
-reddit = praw.Reddit(
-    client_id=client_id,
-    client_secret=client_secret,
-    password=client_password,
-    user_agent=user_agent,
-    username=user_name,
-)
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Connect to Reddit API using PRAW</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">reddit</span> <span class="o">=</span> <span class="n">praw</span><span class="o">.</span><span class="n">Reddit</span><span class="p">(</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">client_id</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">client_secret</span><span class="o">=</span><span class="n">client_secret</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">password</span><span class="o">=</span><span class="n">client_password</span><span class="p">,</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">user_agent</span><span class="o">=</span><span class="n">user_agent</span><span class="p">,</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">username</span><span class="o">=</span><span class="n">user_name</span><span class="p">,</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">)</span>
+</span></code></pre></div>
 <p>And that's it! On to pulling data! As I mentioned, I am interested in the NYC Apartment subreddit. It is called 'NYCapartments'. To pull data, I have to create an instance:</p>
-<pre><code class="language-python"># Create an instance of NYCapartments subreddit
-sub_reddit = reddit.subreddit(&quot;NYCapartments&quot;)
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Create an instance of NYCapartments subreddit</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">sub_reddit</span> <span class="o">=</span> <span class="n">reddit</span><span class="o">.</span><span class="n">subreddit</span><span class="p">(</span><span class="s2">&quot;NYCapartments&quot;</span><span class="p">)</span>
+</span></code></pre></div>
 <p><a id="filtering"></a></p>
 <h3 id="2-filtering-top-posts-from-last-week">2. Filtering Top Posts from Last Week</h3>
 <p>With PRAW, we can easily grab posts by week, month or year. In this example, I wanted to just grab the top 5 posts from the past week to understand how the data is returned. The below code returns the post title, upvotes (score) and comments. </p>
-<pre><code class="language-python"># Get the top 5 posts from the past week
-weekly_posts = sub_reddit.top(time_filter='week', limit=5)
-
-# Print post titles, scores and comments
-for post in weekly_posts:
-    print(f'Post title: {post.title}')
-    print(f'Post upvotes: {post.score}')
-    print(f'Post comments: {post.comments}')
-    print()
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Get the top 5 posts from the past week</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">weekly_posts</span> <span class="o">=</span> <span class="n">sub_reddit</span><span class="o">.</span><span class="n">top</span><span class="p">(</span><span class="n">time_filter</span><span class="o">=</span><span class="s1">&#39;week&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Print post titles, scores and comments</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">weekly_posts</span><span class="p">:</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Post title: </span><span class="si">{</span><span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Post upvotes: </span><span class="si">{</span><span class="n">post</span><span class="o">.</span><span class="n">score</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Post comments: </span><span class="si">{</span><span class="n">post</span><span class="o">.</span><span class="n">comments</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="nb">print</span><span class="p">()</span>
+</span></code></pre></div>
 <p>Here is what a sample output looks like:</p>
-<pre><code>Post title: Looking for roommates to fill $1667 rooms in Park Slope
-Post upvotes: 279
-Post comments: &lt;praw.models.comment_forest.CommentForest object at 0x28d081790&gt;
-
-Post title: Age discrimination in NYC rentals?
-Post upvotes: 113
-Post comments: &lt;praw.models.comment_forest.CommentForest object at 0x28d1f4d90&gt;
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Post title: Looking for roommates to fill $1667 rooms in Park Slope
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Post upvotes: 279
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Post comments: &lt;praw.models.comment_forest.CommentForest object at 0x28d081790&gt;
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Post title: Age discrimination in NYC rentals?
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Post upvotes: 113
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Post comments: &lt;praw.models.comment_forest.CommentForest object at 0x28d1f4d90&gt;
+</span></code></pre></div>
 <p><a id="extract"></a></p>
 <h3 id="3-extracting-and-analyzing-post-data">3. Extracting and Analyzing Post Data</h3>
 <p>Interestingly, <code>post.comments</code> returns an object called <code>comment_forest</code>. In order to see the actual comments, we need to further process this, but it's not too difficult. To do this, I created a list to store all comments and iterated through the comments. For each post, I created a post dictionary with the comments:</p>
-<pre><code class="language-python"># Pull posts from last year NYCapartments subreddit
-post_list = []
-
-for post in subrreddit:
-    post_dict = {}
-    post_comments = []
-    # Retrieve full comments, including nested ones
-    post.comments.replace_more(limit=None)
-    for top_level_comment in post.comments:
-        post_comments.append(top_level_comment.body)
-    post_dict['comments'] = post_comments
-    post_list.append(post_dict)
-
-result_df = pd.DataFrame(post_list)    
-</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Pull posts from last year NYCapartments subreddit</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">post_list</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">subrreddit</span><span class="p">:</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">post_dict</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="n">post_comments</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="c1"># Retrieve full comments, including nested ones</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="n">post</span><span class="o">.</span><span class="n">comments</span><span class="o">.</span><span class="n">replace_more</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="k">for</span> <span class="n">top_level_comment</span> <span class="ow">in</span> <span class="n">post</span><span class="o">.</span><span class="n">comments</span><span class="p">:</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>        <span class="n">post_comments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">top_level_comment</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="n">post_dict</span><span class="p">[</span><span class="s1">&#39;comments&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">post_comments</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="n">post_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">post_dict</span><span class="p">)</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="n">result_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">post_list</span><span class="p">)</span>    
+</span></code></pre></div>
 <p>Note the use of <code>replace_more</code> to retrieve all comments, including nested ones. This ensures you don’t miss out on any key discussion points. You can find the documentation <a href="https://praw.readthedocs.io/en/stable/tutorials/comments.html">here</a>.</p>
 <p><a id="dataviz"></a></p>
 <h3 id="4-data-exploration">4. Data Exploration</h3>
