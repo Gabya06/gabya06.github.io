@@ -8,15 +8,20 @@ repo_url: https://github.com/gabya06/gabya06.github.io
 
 # Configuration
 theme:
-  name: material
+  palette:
+    scheme: slate #dracula #slate
+    # primary: cyan
+    # accent: pink
+  font:
+    text: Calibri
+  name: material #lux #darkly #dracula #material
   favicon: images/selfie_2023.png
 # Page tree: refer to mkdocs documentation
 nav:
 - Home: index.md
 - Data Science Projects:
-  - "Rental Watch AI: From Reddit API to LLM's": 
-    - "Reddit API": reddit_api/readme.md 
-    - "RoBERTa Model for Reddit Posts Sentiment Analysis": roberta_analysis/readme.md 
+  - "Reddit API for NYC Apartment Posts": reddit_api/readme.md 
+  - "RoBERTa Model for Reddit Posts Sentiment Analysis": roberta_analysis/readme.md 
   - "Sentiment Analysis on Glassodoor Reviews": glassdoor_reviews/readme.md
   - "Predicting Movie Genres using Machine Learning": genre_predictions/readme.md
   - "Ensemble Models for Price Forecasting": ensemble/readme.md
@@ -30,6 +35,14 @@ plugins:
             docstring_style: numpy # or numpy, etc.
             show_source: true
 
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
 # plugins
 # plugins:
 # - mkdocstrings:

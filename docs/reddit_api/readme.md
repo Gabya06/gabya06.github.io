@@ -1,4 +1,4 @@
-# Reddit API data pull using PRAW
+# Reddit API: Analyzing NYC Apartment Engagement with Python
 
 ![reddit](reddit_pic.png)
 ## Project Overview

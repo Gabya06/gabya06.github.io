@@ -1,14 +1,20 @@
 # Ensemble regression models for price forecasting
 
+## Project Overview
 Ensemble methods are very popular and effective methods in machine learning, and in this post I'm going to illustrate how to _forecast prices using ensemble learning_.
 
 While time series and regression models work well on their own, when combining these using ensemble methods we can get a better performing model and more accurate predictions for tomorrow's price values given historical data.
 
-In this post, I will cover:
-<li> Ensemble methods basics and fundamentals</li>
-<li> Python code for ensembles using scikit-learn machine learning library</li>
-<li> Ensemble Regression use case for price forecasting</li>
+✽ For the complete blog, visit my page on [medium.com](https://medium.com/@gabya06/ensemble-models-for-price-forecasting-2977c51adb69). <br>
 
+
+## Table of Contents
+1. [Ensemble Methods Basics and Fundamentals](#basics)
+2. [Python Code for Ensembles Using Scikit-Learn](#code)
+3. [Ensemble Regression Use Case for Price Forecasting](#regression)
+
+
+<a id="basics"></a>
 ##What are ensemble models?
 
 Ensemble models combine predictions from other simpler models to produce better predictions. There are two types of ensemble methods:
@@ -36,12 +42,14 @@ Below is a basic workflow of how models could feed base predictions to an ensemb
 
 ![pic2](pic2.png)
 
-## Scikit-Learn API for Ensemble Methods
+<a id="code"></a>
+## 2. Python Code for Ensembles Using Scikit-Learn
+
 The scikit-learn python machine learning library provides Gradient Boosting ensembles methods for both [classification](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html) and [regression](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html) problems.
 
 In the below example, after our import statements, we read the training data for our ensemble regressor - which is the output of our base model predictions - and then split the dataset into X and y.
 
-```python 
+```py linenums="1"
 # import statements
 import pandas as pd
 from sklearn.ensemble import GradientBoostingRegressor
@@ -56,7 +64,7 @@ In this case, the ensemble model is defined using 500 estimators and uses Absolu
 
 Please note that this is meant as a very simple example and that usually we need include additional steps into our modeling such as splitting the data into training and testing, [cross validation](https://scikit-learn.org/stable/modules/cross_validation.html) and analyze various error metrics for performance.
 
-```python
+```py linenums="1" hl_lines="2 3 6"
 # define model - let's start with 500 estimators
 ensemble_regressor = GradientBoostingRegressor(random_state=23, loss='absolute_error',
 n_estimators=500)
@@ -78,10 +86,11 @@ In scikit-learn we see these parameters:
 
 ---
 
-## Ensemble Regression Case Study
-As a quick recap, we now have a better understanding of what ensemble models are: decision trees combined to produce better predictions using averages or weighted averages in the case of AdaBoost. Now, we can take a look at our use case for price prediction.
+<a id="regression"></a>
+## 3. Ensemble Regression Use Case for Price Forecasting
+As a quick recap, we now have a better understanding of what ensemble models are: **decision trees combined** to produce **better predictions using averages** or weighted averages in the case of AdaBoost. Now, we can take a look at our use case for price prediction.
 
-For base models, I used several linear regression models as well as time series models. While linear regression models are easy to fit, fast in runtime and great for understanding general trends, they don't always capture granular changes. Time series models are good for repeating seasonal trends; however this can also be considered a disadvantage if the model holds on to trends longterm. Knowing this bit of information, it is useful to add a quick learner such as an LSTM model. Moreover, one can start to understand why it might be advantageous to combine the pros of these models somehow.
+For base models, I used several *linear regression models* as well as time series models. While linear regression models are **easy to fit**, **fast in runtime** and great for **understanding general trends**, they don't always capture granular changes. Time series models are good for repeating seasonal trends; however this can also be considered a disadvantage if the model holds on to trends longterm. Knowing this bit of information, it is useful to add a quick learner such as an LSTM model. Moreover, one can start to understand why it might be advantageous to combine the pros of these models somehow.
 
 ---
 

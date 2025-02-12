@@ -3,7 +3,7 @@
 
 ![genres](genres.png)
 
-### Project Overview
+## Project Overview
 Some people love horror, others prefer drama, and some can’t get enough of sports. But how do we know which genres are most popular at any given time? Do people really start watching Christmas movies in October? While streaming platforms like Netflix and Hulu categorize content, how do they do it?
 
 This project explores movie genre trends and uses machine learning to predict genres based on a movie’s synopsis or description. By analyzing patterns, we aim to understand which genres dominate at different times of the year.
@@ -65,7 +65,7 @@ This can further be broken down into two parts:
 
 Calculating this by hand seems daunting, but using **Tf-Idf** from the scikit-learn library is actually quite straightforward! We simply fit the vectorizer on our training corpus after importing and calling the vectorizer. As a side note, we generallyrefer to our text data in NLP problems as 'corpus' or 'training corpus'.
 
-```python 
+```py linenums="1"
 # import TF-IDF
 from sklearn.feature_extraction.text import TfidfVectorizer
 
@@ -102,7 +102,7 @@ If we wanted to see all of the feature names:
 <a id="genrepred"></a>
 ### Model Training and Genre Predictions
 After the data cleaning and vectorization, we can finally fit a Naive Bayes model in a few lines of code. We can make use of [Pipeline](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html) to pass in the fit vectorizer along with our model:
-```python
+```py linenums="1"
 # pipeline: train tf-vec and pass input to Naive Bayes Model
 model = Pipeline([("vectorizer", tf_vec),
                   ("classifier", MultinomialNB())])
@@ -112,7 +112,7 @@ model["classifier"].fit(X_train, y_train)
 
 To train our SVM model, we can use the above `Pipeline` approach above, or simply run the `.fit` command:
 
-```python
+```py linenums="1"
 # import SVM Classifier
 from sklearn.linear_model import SGDClassifier
 
@@ -151,7 +151,7 @@ This encoder model is different from other word level embeddings because it is t
 
 To use the model we have to first load it. You can load it once you have downloaded it to your local computer or as I have done below using the web url:
 
-```python
+```py linenums="1"
 import tensorflow_hub as hub
 
 # load model
@@ -164,7 +164,7 @@ Once the model is loaded, embeddings can easily be produced for show overviews -
 
 The below code returns sentence embeddings for a list of sentences:
 
-```python
+``` py linenums="1"
 def embed(input):
     return model(input)
 
@@ -182,7 +182,7 @@ The inner product (dot product) of sentence embeddings is commonly used to measu
 
 In our case, the inner product will represent the semantic similarity between our new show description and our training data.
 
-```python
+```py linenums="1"
 # get embeddings for a new sentence x
 new_x_embeddings = model([new_x])
 

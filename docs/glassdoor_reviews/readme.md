@@ -1,6 +1,6 @@
 # Sentiment Analysis of Data Science Job Reviews on Glassdoor
 
-### Project Overview
+## Project Overview
 The goal of this project was to scrape data science job reviews from glassdoor.com and analyze company reviews. I wanted to perform **sentiment analysis** to understand what users were writing, and to investigate how the number of stars given to a company related to the sentiment in the review. 
 
 ✽ For the complete blog, visit my page on [medium.com](https://medium.com/@gabya06/python-sentiment-analysis-using-textblob-and-vader-for-glassdoor-reviews-cc9632babb73). <br>
@@ -46,7 +46,7 @@ df.clean_review = df.clean_review.map(lambda x: " ".join([i.lower() for i in x.s
 ## Data Exploration & Visualization
 Once the data is cleaned I can finally move on to the fun part, visualizations! I wanted to create a word cloud of the most frequent words in the reviews, so I created word counts:
 
-``` python
+``` py linenums="1"
 # collect words
 word_list = []
 word_list.extend(df.clean_review.str.split())
@@ -121,7 +121,8 @@ So far so good, it looks like TextBlob assigns a more positive sentiment score t
 * We also see the review for the **worse** rating of 3.1 does not correspond to a negative review
 
 
-``` python
+``` py linenums="1" hl_lines="5 6"
+
 # let's find worse review
 worse_stars = df.stars.min()
 worse_review = df[df.stars == df.stars.min()].clean_review.values[0]
@@ -141,6 +142,7 @@ Epic Pharma LLC with 3.1 has the worse review:
 
 But TextBlob indicates it has 0.6 polarity and 1.0
 
+#### Polarity vs. Subjectivity Chart
 When plotting polarity and subjectivity vs. stars given we see that polarity should be increasing as stars increase but that is not always the case. 
 For example, polarity is higher for 3.75 star rated reviews than for reviews with 4.0 stars.
 
@@ -161,7 +163,7 @@ Using the compound score can be enough to determine the underlying sentiment of 
 a negative sentiment, **compound ≤ -0.05**<br>
 a neutral sentiment, the **compound is between [-0.05, 0.05]**<br>
 
-```python
+```py linenums="1"
 # initialize sentiment analyzer
 sid_obj = SentimentIntensityAnalyzer()
 # going back to our sample string
@@ -179,7 +181,7 @@ And the sentiment analyzer output:<br>
 Once we get all the compound, positive and negative scores we can plot them each against the stars given.
 
 
-Since compound scores greater than or equal to 0.5 are considered positive we should see a *more linear relationship* in the below chart. We also notice that there is a dip in the compound score between 3.5 and 3.75 which is interesting. To explore this further we could look at reviews with stars between 3.5 and 3.75 and look at word frequencies as well as compound scores.
+Since compound scores greater than or equal to 0.5 are considered positive we should see a *more linear relationship* in the below chart. We also notice that there is a **dip** in the **compound score between 3.5 and 3.75** which is interesting. To explore this further we could look at reviews with stars between 3.5 and 3.75 and look at word frequencies as well as compound scores.
 
 ![vader_compoundscores](vader_compoundscores.png)
 

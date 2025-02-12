@@ -13,8 +13,7 @@ RoBERTa is available on **Hugging Face**, a platform hosting 900k+ models, 200k+
 1. [Install Dependencies](#setup)
 2. [RoBERTa Model & Tokenization](#roberta)
 3. [Sentiment Prediction](#prediction)
-4. [Probability Interpretation](#interpret)
-5. [Visualization](#vis)
+4. [Visualization](#vis)
 
 <a id="setup"></a>
 ### 1. Install Dependencies
@@ -34,7 +33,7 @@ model = AutoModelForSequenceClassification.from_pretrained("cardiffnlp/twitter-r
 tokenizer = AutoTokenizer.from_pretrained("cardiffnlp/twitter-roberta-base-sentiment")
 ```
 
-In the previous section of this project, I extracted Reddit post and comments from the subreddit NYC Apartments. 
+In the [first post](../reddit_api/readme.md) of this, I extracted Reddit post and comments from the subreddit NYC Apartments. 
 This is dataset that is used in this project; it consists of 200 sample rows with over 8,000 comments.
 
 Let's take a sample comment:
@@ -148,7 +147,7 @@ Probability: 0.535
 ```
 
 <a id="vis"></a>
-### 5. Visualization
+### 4. Visualization
 
 To get a clearer view of our sentiment analysis results, let’s plot a few charts
 
