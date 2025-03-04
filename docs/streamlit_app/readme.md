@@ -171,7 +171,7 @@ right_col.dataframe(top_repairs.style.format(
     hide_index=True)
 ```
 
-<a id="running-the-final-app"></a>
+<a id="running-the-streamlit-app"></a>
 ### 4. Running the Final Streamlit App
 Once you're done adding all the bells and whistles to your app, go ahead and run it!
 

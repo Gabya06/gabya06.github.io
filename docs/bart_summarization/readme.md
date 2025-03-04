@@ -110,7 +110,7 @@ summary_text = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
 ```
 
 
-<a name="num-beans"></a>
+<a name="num_beans"></a>
 ### 4. Exploring `num_beans` Parameter
 
 `num_beams` controls the number of possible candidate sequences considered during beam search decoding. Setting `num_beams=1` is the equivalent to _greedy search_ which might be _fastest_ but does not always provide the most coherent result. Higher values improve quality but increase computation time.
