@@ -23,6 +23,7 @@ theme:
 nav:
 - Home: index.md
 - Data Science Projects:
+  - "Text Summarization using Transfomer Models": bart_summarization/readme.md 
   - "Reddit API for NYC Apartment Posts": reddit_api/readme.md 
   - "RoBERTa Model for Reddit Posts Sentiment Analysis": roberta_analysis/readme.md 
   - "Sentiment Analysis on Glassodoor Reviews": glassdoor_reviews/readme.md
