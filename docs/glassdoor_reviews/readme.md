@@ -6,7 +6,7 @@ hide:
 
 # Sentiment Analysis of Data Science Job Reviews on Glassdoor
 
-![pic1](pic1.png)
+![pic1](img/pic1.png)
 
 ## Project Overview
 The goal of this project was to scrape data science job reviews from glassdoor.com and analyze company reviews. I wanted to perform **sentiment analysis** to understand what users were writing, and to investigate how the number of stars given to a company related to the sentiment in the review. 
@@ -75,7 +75,7 @@ Creating wordcloud visualizations are pretty straightforward once you have the w
 ::: functions.plot_wordcloud
 
 
-![review_wordcloud](review_wordcloud.png)
+![review_wordcloud](img/review_wordcloud.png)
 
 --- 
 <a id="sentiment-textblob"></a>
@@ -143,11 +143,10 @@ print(f"{worse_company} with {worse_stars} has the worse review:\n{worse_review}
 print(f"\nBut TextBlob indicates it has {w_polarity} polarity and {w_subjectivity}")
 ```
 
-python output:
+#### Output:
 
-Epic Pharma LLC with 3.1 has the worse review:
->the people working company nice reviews 'no cons reported glassdoor community
-
+Epic Pharma LLC with 3.1 has the worse review:</br>
+the people working company nice reviews 'no cons reported glassdoor community</br>
 But TextBlob indicates it has 0.6 polarity and 1.0
 
 #### Polarity vs. Subjectivity Chart
@@ -155,7 +154,7 @@ When plotting polarity and subjectivity vs. stars given we see that polarity sho
 For example, polarity is higher for 3.75 star rated reviews than for reviews with 4.0 stars.
 
 
-![textblob_sentiments](textblob_sentiments.png)
+![textblob_sentiments](img/textblob_sentiments.png)
 
 ----
 <a id="sentiment-vader"></a>
@@ -191,16 +190,16 @@ Once we get all the compound, positive and negative scores we can plot them each
 
 Since compound scores greater than or equal to 0.5 are considered positive we should see a *more linear relationship* in the below chart. We also notice that there is a **dip** in the **compound score between 3.5 and 3.75** which is interesting. To explore this further we could look at reviews with stars between 3.5 and 3.75 and look at word frequencies as well as compound scores.
 
-![vader_compoundscores](vader_compoundscores.png)
+![vader_compoundscores](img/vader_compoundscores.png)
 
 
 Here we see the positive scores vs. stars given: 
 
-![vader_pos_scores](vader_pos_scores.png)
+![vader_pos_scores](img/vader_pos_scores.png)
 
 
 And lastly, here are the negative scores vs. stars given:
-![vader_neg_scores](vader_neg_scores.png)
+![vader_neg_scores](img/vader_neg_scores.png)
 
 ---
 

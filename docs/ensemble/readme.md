@@ -6,7 +6,7 @@ hide:
 
 # Ensemble Regression Models for Price Forecasting
 
-![pic6](pic6.png)
+![pic6](img/pic6.png)
 
 ## Project Overview
 Ensemble methods are very popular and effective methods in machine learning, and in this post I'm going to illustrate how to _forecast prices using ensemble learning_.
@@ -36,7 +36,7 @@ It is referred to as Bootstrap Aggregation since [bootstrap](https://en.wikipedi
 
 The combined estimator uses averaging for regression problems and majority voting for classification problems; and this is usually better than the single base estimators because variance is reduced by averaging. [Random Forest](https://en.wikipedia.org/wiki/Random_forest) is an example of an effective bagging algorithm which aggregates over multiple decision trees, each trained using different bootstrapped samples as well as split on different features.
 
-![pic1](pic1.png)
+![pic1](img/pic1.png)
 
 As the names suggests, sequential ensemble methods generate and train their base learners *sequentially* (one after the other), and these learners are *dependent* of each another. As such, the overall performance can be improved by weighing previously mislabeled/incorrect examples with higher weight; the goal is to reduce the bias of the combined estimator.
 
@@ -48,7 +48,7 @@ Another example of a boosting algorithm is Gradient Boosting, which is the model
 
 Below is a basic workflow of how models could feed base predictions to an ensemble learner which then would make final price predictions. In this illustration have chosen my base learners to be linear regression, moving averages, simple exponential smoothing and LSTM, but there are other models that could be used.
 
-![pic2](pic2.png)
+![pic2](img/pic2.png)
 
 <a id="code"></a>
 ### 2. Python Code for Ensembles Using Scikit-Learn
@@ -66,7 +66,7 @@ from sklearn.ensemble import GradientBoostingRegressor
 df = pd.read_csv("price_data.csv")
 ```
 
-![pic3](pic3.png)
+![pic3](img/pic3.png)
 
 In this case, the ensemble model is defined using 500 estimators and uses Absolute Error as its loss function. It is then fit to our data with one simple line of code. The next line of code makes predictions on our training data.
 
@@ -90,7 +90,7 @@ The default loss function is squared error for regression, but we can chose from
 
 In scikit-learn we see these parameters:
 
-![pic4](pic4.png)
+![pic4](img/pic4.png)
 
 ---
 
@@ -106,7 +106,7 @@ Having cleaned and vectorized data, we split the data for each model into traini
 
 Each model is trained and then makes predictions against the test data set. The ensemble model is consequently trained; the feature set consists of these base model predictions and the dependent variable y consists of the test data price values. Lastly the trained ensemble learner returns one target price for the interval forecast period of 30 days.
 
-![pic5](pic5.png)
+![pic5](img/pic5.png)
 
 Price prediction is a common use case and we can imagine how implementing these models can be leveraged to allow different types of clients and Account Management teams to better auto-scale pricing for their products. This is one of many interesting use cases of ensemble regression for price forecasting.
 

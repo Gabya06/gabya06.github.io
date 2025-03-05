@@ -6,7 +6,7 @@ hide:
 
 # Reddit API: Analyzing NYC Apartment Engagement with Python
 
-![reddit](reddit_pic.png)
+![reddit](img/reddit_pic.png)
 ## Project Overview
 The goal of this project was to learn how to pull Reddit data using the python package PRAW. In particular, I am interested in learning how Reddit users are feeling about New York City Apartment Rentals. There is a subgroup called NYC Apartments and the goal is to *pull user posts and comments*.  
  
@@ -107,17 +107,17 @@ Note the use of `replace_more` to retrieve all comments, including nested ones. 
 ### 4. Data Exploration
 After pulling the data from subreddit, we can start asking meaningful questions and perform data analysis. But first, here is a quick look at the data:
 
-![data](data.png)
+![data](img/data.png)
 
 #### How much engagement do posts typically receive?
 By examining the distribution of comments, we see that the majority of posts get fewer than 100 comments:
 
-![pic](pic1.png)
+![pic](img/pic1.png)
 
 #### What’s the typical upvote range for posts?
 Most posts fall within the range of 150 to 300 upvotes, showing moderate interest from the subreddit. However, there are occasional outliers with over 600 upvotes, indicating viral content that grabs more widespread attention:
 
-![pic2](pic2.png)
+![pic2](img/pic2.png)
 
 <a id="next-steps"></a>
 ### 5. Next Steps

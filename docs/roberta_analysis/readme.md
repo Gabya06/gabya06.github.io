@@ -6,7 +6,7 @@ hide:
 
 # Sentiment Analysis of Reddit Comments Using RoBERTa
 
-![huggingface](pic1.png)
+![huggingface](img/pic1.png)
 ## Project Overview
 This project applies sentiment analysis to Reddit comments using **RoBERTa**, a powerful NLP model developed by Meta AI. RoBERTa is fine-tuned on millions of tweets and can be used to classify text as positive, neutral, or negative, making it well-suited for analyzing online discussions.
 RoBERTa is available on **Hugging Face**, a platform hosting 900k+ models, 200k+ datasets, and 300k+ demo applications, fostering collaboration in machine learning.
@@ -79,7 +79,7 @@ Note that I set `max_length` to 512 because this model can process *up to 512 to
 This limit ensures that our input fits within the model's capabilities.
 
 Let's take a closer look at what `encoded_comment` consists of:
-![pic2](pic2.png)
+![pic2](img/pic2.png)
 
 `input_ids` represent the numerical values of the words in the text, and 
 `attention_mask` is a tensor with **1's or 0's** indicating which tokens should be **attended** to during processing.
@@ -162,7 +162,7 @@ To get a clearer view of our sentiment analysis results, let’s plot a few char
 * Sentiment distribution - a big majority of comments are negative
 * Sentiment probability distributions: positive and negative are wider ranging and neutral is smallest
 
-![pic4](pic4.png)
+![pic4](img/pic4.png)
 
 
 

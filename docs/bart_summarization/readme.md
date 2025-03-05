@@ -6,7 +6,7 @@ hide:
 
 # T5-Base, T5-Large, and BART — The Battle of the Summarization Models
 
-![transformers](transformers.png)
+![transformers](img/transformers.png)
 
 ## Project Overview
 This project explores text summarization _transformer models_ T5-Base, T5-Large and BART-CNN and compare their _summarization_ results. Building upon the Reddit NYCApartment dataset that was pulled using the API PRAW, the focus is to evaluate and compare these models when summarizing user comments and posts.

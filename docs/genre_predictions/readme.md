@@ -6,7 +6,7 @@ hide:
 
 # Predicting Movie Genres using Machine Learning Models and Semantic Textual Similarity
 
-![genres](genres.png)
+![genres](img/genres.png)
 
 ## Project Overview
 Some people love horror, others prefer drama, and some can’t get enough of sports. But how do we know which genres are most popular at any given time? Do people really start watching Christmas movies in October? While streaming platforms like Netflix and Hulu categorize content, how do they do it?
@@ -45,7 +45,7 @@ In the below example, I used the NLTK library to perform some of the preprocessi
 ::: functions.tokenize_overview
 
 A quick look at the data shows that each row in the tokens column contains a list of words:
-![df_1](df_1.png)
+![df_1](img/df_1.png)
 
 <a id="tfidf"></a>
 ### TFIDF Vectorization (Term Frequency-Inverse Document Frequency)
@@ -98,11 +98,11 @@ If we wanted to see the features and vocabulary based on the corpus:
 dic_vocab = tf_vec.vocabulary_
 ```
 
-![code_6](code_6.png)
+![code_6](img/code_6.png)
 
 
 If we wanted to see all of the feature names:
-![code_7](code_7.png)
+![code_7](img/code_7.png)
 
 <a id="genrepred"></a>
 ### Model Training and Genre Predictions
@@ -144,7 +144,7 @@ As a final step, I trained a **gradient boosting classification** model on the c
 
 In the below, we see that sometimes the different models don't always predict the same genre, but when these predictions are combined as features in the ensemble model, it outperforms each one individually.
 
-![df_2](df_2.png)
+![df_2](img/df_2.png)
 
 ---
 
@@ -178,7 +178,7 @@ corpus_embeddings = embed(x)
 ```
 
 Our model returns the following sentence embeddings:
-![code_15](code_15.png)
+![code_15](img/code_15.png)
 
 ### Making Predictions on New Shows
 When we have a new show description that we would like to predict, we first need to obtain its embeddings using the same sentence encoder. We then take the inner product with the corpus embeddings of our training data. 
@@ -198,7 +198,7 @@ text_similarity = np.inner(new_x_embeddings, corpus_embeddings)[0]
 
 Lastly, the genre of the training sentence with the *highest similarity/correlation* will be assigned as the genre for the new show.
 In the below example we can see that the show overview for Jane and the Dragon is most correlated with other another animation films, so we have assigned the new genre as animation:
-![code_13](code_13.png)
+![code_13](img/code_13.png)
 
 ---
 

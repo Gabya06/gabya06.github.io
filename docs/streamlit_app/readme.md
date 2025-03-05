@@ -6,7 +6,7 @@ hide:
 
 # Building a Streamlit App for Product Defect Analysis
 
-![streamlit](pic1.png)
+![streamlit](img/pic1.png)
 
 
 ## Project Overview
@@ -59,7 +59,7 @@ plt.show()
 
 Here is our resulting chart:
 
-![chart1](chart1.png)
+![chart1](img/chart1.png)
 
 
 <a name="streamlit-start"></a>
@@ -110,7 +110,7 @@ streamlit run app.py
 
 And Voila!
 
-![app_1](app_1.png)
+![app_1](img/app_1.png)
 
 
 <a name="streamlit-app"></a>
@@ -145,7 +145,7 @@ right.dataframe(
 
 Our app now includes the line chart and table:
 
-![app_2](app_2.png)
+![app_2](img/app_2.png)
 
 
 #### Example: Top Repair Costs
