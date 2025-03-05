@@ -643,7 +643,7 @@
 
 
 <div><h1 id="sentiment-analysis-of-reddit-comments-using-roberta">Sentiment Analysis of Reddit Comments Using RoBERTa</h1>
-<p><img alt="huggingface" src="../pic1.png"></p>
+<p><img alt="huggingface" src="../img/pic1.png"></p>
 <h2 id="project-overview">Project Overview</h2>
 <p>This project applies sentiment analysis to Reddit comments using <strong>RoBERTa</strong>, a powerful NLP model developed by Meta AI. RoBERTa is fine-tuned on millions of tweets and can be used to classify text as positive, neutral, or negative, making it well-suited for analyzing online discussions.
 RoBERTa is available on <strong>Hugging Face</strong>, a platform hosting 900k+ models, 200k+ datasets, and 300k+ demo applications, fostering collaboration in machine learning.</p>
@@ -712,7 +712,7 @@ This means using the tokenizer to transform the text into numerical representati
 <p>Note that I set <code>max_length</code> to 512 because this model can process <em>up to 512 tokens</em> at a time. 
 This limit ensures that our input fits within the model's capabilities.</p>
 <p>Let's take a closer look at what <code>encoded_comment</code> consists of:
-<img alt="pic2" src="../pic2.png"></p>
+<img alt="pic2" src="../img/pic2.png"></p>
 <p><code>input_ids</code> represent the numerical values of the words in the text, and 
 <code>attention_mask</code> is a tensor with <strong>1's or 0's</strong> indicating which tokens should be <strong>attended</strong> to during processing.</p>
 <p>Next, let's make some predictions:</p>
@@ -790,7 +790,7 @@ The model agrees with our initial classification. Although we’ve only classifi
 <li>Sentiment distribution - a big majority of comments are negative</li>
 <li>Sentiment probability distributions: positive and negative are wider ranging and neutral is smallest</li>
 </ul>
-<p><img alt="pic4" src="../pic4.png"></p>
+<p><img alt="pic4" src="../img/pic4.png"></p>
 <hr>
 <h3 id="resources">Resources:</h3>
 <p><a href="https://huggingface.co/">HuggingFace</a>

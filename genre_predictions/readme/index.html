@@ -757,7 +757,7 @@
 
 
 <div><h1 id="predicting-movie-genres-using-machine-learning-models-and-semantic-textual-similarity">Predicting Movie Genres using Machine Learning Models and Semantic Textual Similarity</h1>
-<p><img alt="genres" src="../genres.png"></p>
+<p><img alt="genres" src="../img/genres.png"></p>
 <h2 id="project-overview">Project Overview</h2>
 <p>Some people love horror, others prefer drama, and some can’t get enough of sports. But how do we know which genres are most popular at any given time? Do people really start watching Christmas movies in October? While streaming platforms like Netflix and Hulu categorize content, how do they do it?</p>
 <p>This project explores movie genre trends and uses machine learning to predict genres based on a movie’s synopsis or description. By analyzing patterns, we aim to understand which genres dominate at different times of the year.</p>
@@ -837,7 +837,7 @@
     </div>
 
 </div><p>A quick look at the data shows that each row in the tokens column contains a list of words:
-<img alt="df_1" src="../df_1.png"></p>
+<img alt="df_1" src="../img/df_1.png"></p>
 <p><a id="tfidf"></a></p>
 <h3 id="tfidf-vectorization-term-frequency-inverse-document-frequency">TFIDF Vectorization (Term Frequency-Inverse Document Frequency)</h3>
 <p>In general, machine learning models don't understand words as features, so we need to do something to convert <em>words to features</em> (a numeric representation). In order to use Naive Bayes or SVM classification models, each row with a synopsis needs to be converted to numeric representation - this is referred to as <em>vectorization</em>.</p>
@@ -872,14 +872,14 @@
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">X_train</span> <span class="o">=</span> <span class="n">tf_vec</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train_corpus</span><span class="p">)</span>
 </span></code></pre></div>
 <p>We can double check our new training dataset and see that it is now a sparse matrix with numeric datatype
-<img alt="code_14" src="../code_14.png"></p>
+<img alt="code_14" src="code_14.png"></p>
 <p>If we wanted to see the features and vocabulary based on the corpus:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># get vocabulary</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">dic_vocab</span> <span class="o">=</span> <span class="n">tf_vec</span><span class="o">.</span><span class="n">vocabulary_</span>
 </span></code></pre></div>
-<p><img alt="code_6" src="../code_6.png"></p>
+<p><img alt="code_6" src="../img/code_6.png"></p>
 <p>If we wanted to see all of the feature names:
-<img alt="code_7" src="../code_7.png"></p>
+<img alt="code_7" src="../img/code_7.png"></p>
 <p><a id="genrepred"></a></p>
 <h3 id="model-training-and-genre-predictions">Model Training and Genre Predictions</h3>
 <p>After the data cleaning and vectorization, we can finally fit a Naive Bayes model in a few lines of code. We can make use of <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html">Pipeline</a> to pass in the fit vectorizer along with our model:
@@ -940,7 +940,7 @@
 <p>In order to improve the model performance I had to perform feature engineering. Small changes such as combining "action &amp; adventure" with "adventure", "SciFi" with "science fiction" improved the model performance significantly. The idea was to reduce the number of labels to be predicted by combining some of our overlapping genres.</p>
 <p>As a final step, I trained a <strong>gradient boosting classification</strong> model on the combined output predictions of each model which further <strong>increased performance by 5%</strong> to about <strong>80% accuracy</strong>.</p>
 <p>In the below, we see that sometimes the different models don't always predict the same genre, but when these predictions are combined as features in the ensemble model, it outperforms each one individually.</p>
-<p><img alt="df_2" src="../df_2.png"></p>
+<p><img alt="df_2" src="../img/df_2.png"></p>
 <hr>
 <p><a id="tf"></a></p>
 <h2 id="semantic-textual-similarity-a-second-approach">Semantic Textual Similarity - A Second Approach</h2>
@@ -970,7 +970,7 @@
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="n">corpus_embeddings</span> <span class="o">=</span> <span class="n">embed</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Our model returns the following sentence embeddings:
-<img alt="code_15" src="../code_15.png"></p>
+<img alt="code_15" src="../img/code_15.png"></p>
 <h3 id="making-predictions-on-new-shows">Making Predictions on New Shows</h3>
 <p>When we have a new show description that we would like to predict, we first need to obtain its embeddings using the same sentence encoder. We then take the inner product with the corpus embeddings of our training data. </p>
 <p>The inner product (dot product) of sentence embeddings is commonly used to measure <em>sentence similarity</em> because it provides a way to <em>quantify how aligned two embeddings are in the vector space</em>. So, a <strong>higher inner product</strong> means the vectors are pointing in similar directions, indicating <strong>higher similarity</strong> between sentences.</p>
@@ -987,7 +987,7 @@
 </span></code></pre></div></td></tr></table></div>
 <p>Lastly, the genre of the training sentence with the <em>highest similarity/correlation</em> will be assigned as the genre for the new show.
 In the below example we can see that the show overview for Jane and the Dragon is most correlated with other another animation films, so we have assigned the new genre as animation:
-<img alt="code_13" src="../code_13.png"></p>
+<img alt="code_13" src="../img/code_13.png"></p>
 <hr>
 <h3 id="resources">Resources:</h3>
 <ul>

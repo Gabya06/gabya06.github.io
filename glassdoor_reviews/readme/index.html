@@ -482,6 +482,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#polarity-vs-subjectivity-chart" class="md-nav__link">
     <span class="md-ellipsis">
       Polarity vs. Subjectivity Chart
@@ -774,6 +783,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#polarity-vs-subjectivity-chart" class="md-nav__link">
     <span class="md-ellipsis">
       Polarity vs. Subjectivity Chart
@@ -835,7 +853,7 @@
 
 
 <div><h1 id="sentiment-analysis-of-data-science-job-reviews-on-glassdoor">Sentiment Analysis of Data Science Job Reviews on Glassdoor</h1>
-<p><img alt="pic1" src="../pic1.png"></p>
+<p><img alt="pic1" src="../img/pic1.png"></p>
 <h2 id="project-overview">Project Overview</h2>
 <p>The goal of this project was to scrape data science job reviews from glassdoor.com and analyze company reviews. I wanted to perform <strong>sentiment analysis</strong> to understand what users were writing, and to investigate how the number of stars given to a company related to the sentiment in the review. </p>
 <p>✽ For the complete blog, visit my page on <a href="https://medium.com/@gabya06/python-sentiment-analysis-using-textblob-and-vader-for-glassdoor-reviews-cc9632babb73">medium.com</a>. <br>
@@ -1053,7 +1071,7 @@
             </details>
     </div>
 
-</div><p><img alt="review_wordcloud" src="../review_wordcloud.png"></p>
+</div><p><img alt="review_wordcloud" src="../img/review_wordcloud.png"></p>
 <hr>
 <p><a id="sentiment-textblob"></a></p>
 <h2 id="sentiment-analysis-using-textblob-polarity-and-subjectivity">Sentiment Analysis using TextBlob Polarity and Subjectivity</h2>
@@ -1138,16 +1156,14 @@
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">worse_company</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="n">worse_stars</span><span class="si">}</span><span class="s2"> has the worse review:</span><span class="se">\n</span><span class="si">{</span><span class="n">worse_review</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">But TextBlob indicates it has </span><span class="si">{</span><span class="n">w_polarity</span><span class="si">}</span><span class="s2"> polarity and </span><span class="si">{</span><span class="n">w_subjectivity</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-<p>python output:</p>
-<p>Epic Pharma LLC with 3.1 has the worse review:</p>
-<blockquote>
-<p>the people working company nice reviews 'no cons reported glassdoor community</p>
-</blockquote>
-<p>But TextBlob indicates it has 0.6 polarity and 1.0</p>
+<h4 id="output">Output:</h4>
+<p>Epic Pharma LLC with 3.1 has the worse review:
+the people working company nice reviews 'no cons reported glassdoor community
+But TextBlob indicates it has 0.6 polarity and 1.0</p>
 <h4 id="polarity-vs-subjectivity-chart">Polarity vs. Subjectivity Chart</h4>
 <p>When plotting polarity and subjectivity vs. stars given we see that polarity should be increasing as stars increase but that is not always the case. 
 For example, polarity is higher for 3.75 star rated reviews than for reviews with 4.0 stars.</p>
-<p><img alt="textblob_sentiments" src="../textblob_sentiments.png"></p>
+<p><img alt="textblob_sentiments" src="../img/textblob_sentiments.png"></p>
 <hr>
 <p><a id="sentiment-vader"></a></p>
 <h2 id="vader-and-sentiment-analysis">VADER and Sentiment Analysis</h2>
@@ -1178,11 +1194,11 @@ a neutral sentiment, the <strong>compound is between [-0.05, 0.05]</strong><br><
 <code>{'neg': 0.137, 'neu': 0.469, 'pos': 0.394, 'compound': 0.9646}</code></p>
 <p>Once we get all the compound, positive and negative scores we can plot them each against the stars given.</p>
 <p>Since compound scores greater than or equal to 0.5 are considered positive we should see a <em>more linear relationship</em> in the below chart. We also notice that there is a <strong>dip</strong> in the <strong>compound score between 3.5 and 3.75</strong> which is interesting. To explore this further we could look at reviews with stars between 3.5 and 3.75 and look at word frequencies as well as compound scores.</p>
-<p><img alt="vader_compoundscores" src="../vader_compoundscores.png"></p>
+<p><img alt="vader_compoundscores" src="../img/vader_compoundscores.png"></p>
 <p>Here we see the positive scores vs. stars given: </p>
-<p><img alt="vader_pos_scores" src="../vader_pos_scores.png"></p>
+<p><img alt="vader_pos_scores" src="../img/vader_pos_scores.png"></p>
 <p>And lastly, here are the negative scores vs. stars given:
-<img alt="vader_neg_scores" src="../vader_neg_scores.png"></p>
+<img alt="vader_neg_scores" src="../img/vader_neg_scores.png"></p>
 <hr>
 <h3 id="resources">Resources:</h3>
 <ul>

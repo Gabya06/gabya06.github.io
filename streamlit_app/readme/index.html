@@ -769,7 +769,7 @@
 
 
 <div><h1 id="building-a-streamlit-app-for-product-defect-analysis">Building a Streamlit App for Product Defect Analysis</h1>
-<p><img alt="streamlit" src="../pic1.png"></p>
+<p><img alt="streamlit" src="../img/pic1.png"></p>
 <h2 id="project-overview">Project Overview</h2>
 <p>This project demonstrates how to build a Streamlit web application for analyzing product defects using data visualization techniques in Matplotlib and Seaborn. The dataset, sourced from <a href="https://www.kaggle.com/datasets/fahmidachowdhury/manufacturing-defects/data">Kaggle</a>, contains product defect reports with repair costs, defect severity levels, and inspection methods. The goal is to generate insights through <em>interactive visualizations</em> and streamline <em>data exploration</em>.</p>
 <p>✽ The full article can be found on my page on <a href="https://medium.com/@gabya06/creating-your-first-streamlit-app-with-matplotlib-seaborn-7e888e8a7470">medium.com</a>.<br>
@@ -832,7 +832,7 @@
 </span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Here is our resulting chart:</p>
-<p><img alt="chart1" src="../chart1.png"></p>
+<p><img alt="chart1" src="../img/chart1.png"></p>
 <p><a name="streamlit-start"></a></p>
 <h3 id="2-streamlit-app-getting-started">2. Streamlit App: Getting Started</h3>
 <p>Streamlit provides a Python-based framework for <em>deploying data science applications with minimal effort</em>. The app is structured in <code>app.py</code>, leveraging Streamlit's layout capabilities.</p>
@@ -892,7 +892,7 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>streamlit<span class="w"> </span>run<span class="w"> </span>app.py
 </span></code></pre></div>
 <p>And Voila!</p>
-<p><img alt="app_1" src="../app_1.png"></p>
+<p><img alt="app_1" src="../img/app_1.png"></p>
 <p><a name="streamlit-app"></a></p>
 <h3 id="3-streamlit-app-interactive-visualizations">3. Streamlit App: Interactive Visualizations</h3>
 <p>Streamlit integrates seamlessly with Matplotlib and Seaborn, enabling dynamic visualizations. It can also create its own <a href="https://docs.streamlit.io/develop/api-reference/charts">charts</a>.</p>
@@ -940,7 +940,7 @@
 </span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Our app now includes the line chart and table:</p>
-<p><img alt="app_2" src="../app_2.png"></p>
+<p><img alt="app_2" src="../img/app_2.png"></p>
 <h4 id="example-top-repair-costs">Example: Top Repair Costs</h4>
 <p>Imagine you are tasked with investigating which products incurred the <em>highest repair costs</em>. We can create a bar chart to show the <em>top 10 products by repair cost</em> and add it to <code>app.py</code>:</p>
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
