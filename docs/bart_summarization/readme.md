@@ -50,21 +50,27 @@ Each model has its unique characteristics and produces different summary results
 
 <a name="t5-base"></a>
 ### a. T5-BASE Model 
-    * **Model size**: 220M parameters
-    * **Strengths**: Balanced performance and efficiency
-    * **Weaknesses**: Less fluent and less coherent than larger models
-    * **Best for**: General text summarization, Q&A, and text generation
+    * Model size: 220M parameters
+    * Strengths: Balanced performance and efficiency
+    * Weaknesses: Less fluent and less coherent than larger models
+    * Best for: General text summarization, Q&A, and text generation
 
 <a name="t5-large"></a>
 ### b. T5-LARGE Model
-    * **Model size**: 770M parameters
-    * **Strengths**: More fluent and detailed summaries
-    * **Weaknesses**: Requires more computational power
-    * **Best for**: Complex summarization tasks, longer documents
+    * Model size: 770M parameters
+    * Strengths: More fluent and detailed summaries
+    * Weaknesses: Requires more computational power
+    * Best for: Complex summarization tasks, longer documents
 
 
 <a name="bart"></a>
 ### c. BART-LARGE-CNN Model
+    * Model size: 406M parameters
+    * Strengths: High-quality abstractive summaries
+    * Weaknesses: Requires fine-tuning for domain-specific texts
+    * Best for: News summarization, content condensation
+
+Here's a quick code snippet on how to use BART-LARGE-CNN:
 
 ```py linenums="1"
 # Load summarization pipeline
@@ -77,10 +83,6 @@ summary = summarizer(sample_comment, min_length=30, max_length=100,
                      do_sample=False)
 ```
 
-* **Model size**: 406M parameters
-* **Strengths**: High-quality abstractive summaries
-* **Weaknesses**: Requires fine-tuning for domain-specific texts
-* **Best for**: News summarization, content condensation
 
 ### T5 vs. BART Comparison:
 | Feature| T5	|BART|
@@ -132,7 +134,8 @@ Once the individual summarization tests were complete, I applied the summarizati
 import pandas as pd
 
 # Apply summarization to each post's comment
-df['summary'] = df['comments'].apply(lambda x: summarizer(x, max_length=60, min_length=30, do_sample=False)[0]['summary_text'])
+df['summary'] = df['comments'].apply(lambda x: summarizer(
+        x, max_length=60,  min_length=30, do_sample=False)[0]['summary_text'])
 ```
 
 ### Final Summary of Model Performance

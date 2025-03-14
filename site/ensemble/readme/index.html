@@ -625,7 +625,7 @@
 
 
 <div><h1 id="ensemble-regression-models-for-price-forecasting">Ensemble Regression Models for Price Forecasting</h1>
-<p><img alt="pic6" src="../pic6.png"></p>
+<p><img alt="pic6" src="../img/pic6.png"></p>
 <h2 id="project-overview">Project Overview</h2>
 <p>Ensemble methods are very popular and effective methods in machine learning, and in this post I'm going to illustrate how to <em>forecast prices using ensemble learning</em>.</p>
 <p>While time series and regression models work well on their own, when combining these using ensemble methods we can get a better performing model and more accurate predictions for tomorrow's price values given historical data.</p>
@@ -644,13 +644,13 @@
 <p>Parallel ensemble methods generate and train their base learners <em>in parallel</em> and these learners are <em>independent</em> of each other. Training parallel base estimators is also known as <em>Bagging</em> (Bootstrap Aggregation) and here we aggregate/average the individual base estimator predictions into one final prediction.</p>
 <p>It is referred to as Bootstrap Aggregation since <a href="https://en.wikipedia.org/wiki/Bootstrapping_(statistics)">bootstrap</a> sampling is used to sample the data subsets needed to train the base learners; simply put, bootstrapping sampling refers to sampling with replacement while assigning measures of accuracy to sample estimates.</p>
 <p>The combined estimator uses averaging for regression problems and majority voting for classification problems; and this is usually better than the single base estimators because variance is reduced by averaging. <a href="https://en.wikipedia.org/wiki/Random_forest">Random Forest</a> is an example of an effective bagging algorithm which aggregates over multiple decision trees, each trained using different bootstrapped samples as well as split on different features.</p>
-<p><img alt="pic1" src="../pic1.png"></p>
+<p><img alt="pic1" src="../img/pic1.png"></p>
 <p>As the names suggests, sequential ensemble methods generate and train their base learners <em>sequentially</em> (one after the other), and these learners are <em>dependent</em> of each another. As such, the overall performance can be improved by weighing previously mislabeled/incorrect examples with higher weight; the goal is to reduce the bias of the combined estimator.</p>
 <p>This method is also known as <em>Boosting</em> and <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostRegressor.html">AdaBoost</a> is an example of a popular and effective Boosting algorithm. The base learners are usually weak learners such as small decision trees trained on a weighted version of the data based on the previous learners' mistakes. Weights are increased based on correct and incorrect predictions, and more weight is given to more accurate learners. The final predictions are combined by a weighted sum or weighted majority vote.</p>
 <p>Another example of a boosting algorithm is Gradient Boosting, which is the model used in this price forecasting use case. Since prices are predicted, the values (also known as labels) are numeric. As such, regression models are used as the base learners and then combined using <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html">Gradient Boosting Regressor</a>.</p>
 <hr>
 <p>Below is a basic workflow of how models could feed base predictions to an ensemble learner which then would make final price predictions. In this illustration have chosen my base learners to be linear regression, moving averages, simple exponential smoothing and LSTM, but there are other models that could be used.</p>
-<p><img alt="pic2" src="../pic2.png"></p>
+<p><img alt="pic2" src="../img/pic2.png"></p>
 <p><a id="code"></a></p>
 <h3 id="2-python-code-for-ensembles-using-scikit-learn">2. Python Code for Ensembles Using Scikit-Learn</h3>
 <p>The scikit-learn python machine learning library provides Gradient Boosting ensembles methods for both <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html">classification</a> and <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html">regression</a> problems.</p>
@@ -667,7 +667,7 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1"># read csv file</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"price_data.csv"</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-<p><img alt="pic3" src="../pic3.png"></p>
+<p><img alt="pic3" src="../img/pic3.png"></p>
 <p>In this case, the ensemble model is defined using 500 estimators and uses Absolute Error as its loss function. It is then fit to our data with one simple line of code. The next line of code makes predictions on our training data.</p>
 <p>Please note that this is meant as a very simple example and that usually we need include additional steps into our modeling such as splitting the data into training and testing, <a href="https://scikit-learn.org/stable/modules/cross_validation.html">cross validation</a> and analyze various error metrics for performance.</p>
 <div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
@@ -691,7 +691,7 @@
 <p>There are multiple hyper parameters that can be tuned such as the loss function, learning rate, min samples split, max depth and others.</p>
 <p>The default loss function is squared error for regression, but we can chose from least absolute error, huber or quantile. The default criterion which measures the quality of a split is "friedman_mse" but we could have also picked "squared_error" instead.</p>
 <p>In scikit-learn we see these parameters:</p>
-<p><img alt="pic4" src="../pic4.png"></p>
+<p><img alt="pic4" src="../img/pic4.png"></p>
 <hr>
 <p><a id="regression"></a></p>
 <h3 id="3-ensemble-regression-use-case-for-price-forecasting">3. Ensemble Regression Use Case for Price Forecasting</h3>
@@ -700,7 +700,7 @@
 <hr>
 <p>Having cleaned and vectorized data, we split the data for each model into training and test data sets. In this example, linear regression models trained across different time periods (e.g: say we have two models, one trained on 3 months and one trained on 9 months), so we have to be careful about splitting our data accordingly for each model.</p>
 <p>Each model is trained and then makes predictions against the test data set. The ensemble model is consequently trained; the feature set consists of these base model predictions and the dependent variable y consists of the test data price values. Lastly the trained ensemble learner returns one target price for the interval forecast period of 30 days.</p>
-<p><img alt="pic5" src="../pic5.png"></p>
+<p><img alt="pic5" src="../img/pic5.png"></p>
 <p>Price prediction is a common use case and we can imagine how implementing these models can be leveraged to allow different types of clients and Account Management teams to better auto-scale pricing for their products. This is one of many interesting use cases of ensemble regression for price forecasting.</p>
 <hr>
 <h3 id="additional-resources">Additional Resources:</h3>

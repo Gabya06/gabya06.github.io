@@ -89,7 +89,7 @@ X_train = tf_vec.transform(train_corpus)
 ```
 
 We can double check our new training dataset and see that it is now a sparse matrix with numeric datatype
-![code_14](code_14.png)
+![code_14](img/code_14.png)
 
 If we wanted to see the features and vocabulary based on the corpus:
 

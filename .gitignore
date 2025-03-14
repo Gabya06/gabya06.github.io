@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Ignore deleted or temporary files
+site/search/search_index.json
+
+# Logs
+*.log
+
+# Build output
+/dist
+/build
+
+# .env files or any sensitive info
+.env
+
+# .vscode files (optional)
+.vscode/

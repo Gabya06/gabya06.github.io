@@ -1,0 +1,1024 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Gaby Agrocostea">
+      
+      
+        <link rel="canonical" href="https://gabya06.github.io/bart_summarization/readme/">
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../../reddit_api/readme/">
+      
+      
+      <link rel="icon" href="../../images/selfie_2023.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+    
+    
+      
+        <title>Text Summarization using Transfomer Models - Gaby's Data Science Portfolio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Calibri:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Calibri";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#t5-base-t5-large-and-bart-the-battle-of-the-summarization-models" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Gaby&#39;s Data Science Portfolio" class="md-header__button md-logo" aria-label="Gaby's Data Science Portfolio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Gaby's Data Science Portfolio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Text Summarization using Transfomer Models
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/gabya06/gabya06.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    gabya06/gabya06.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Gaby&#39;s Data Science Portfolio" class="md-nav__button md-logo" aria-label="Gaby's Data Science Portfolio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Gaby's Data Science Portfolio
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/gabya06/gabya06.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    gabya06/gabya06.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Science Projects
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Data Science Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Text Summarization using Transfomer Models
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Text Summarization using Transfomer Models
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Table of Contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-data-visualization-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Data Visualization &amp; Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pipelines-for-summarization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Pipelines for Summarization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-t5-base-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      a. T5-BASE Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-t5-large-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      b. T5-LARGE Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-bart-large-cnn-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      c. BART-LARGE-CNN Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#t5-vs-bart-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      T5 vs. BART Comparison:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-more-parameter-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. More Parameter Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-exploring-num_beans-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Exploring num_beans Parameter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-summarizing-the-full-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Summarizing the Full Dataset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-summary-of-model-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Summary of Model Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reddit_api/readme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reddit API for NYC Apartment Posts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roberta_analysis/readme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RoBERTa Model for Reddit Posts Sentiment Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glassdoor_reviews/readme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sentiment Analysis on Glassodoor Reviews
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../genre_predictions/readme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Predicting Movie Genres using Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ensemble/readme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ensemble Models for Price Forecasting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../streamlit_app/readme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mastering Interactive Data Visualizations with Streamlit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Table of Contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-data-visualization-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Data Visualization &amp; Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pipelines-for-summarization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Pipelines for Summarization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-t5-base-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      a. T5-BASE Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-t5-large-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      b. T5-LARGE Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-bart-large-cnn-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      c. BART-LARGE-CNN Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#t5-vs-bart-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      T5 vs. BART Comparison:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-more-parameter-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. More Parameter Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-exploring-num_beans-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Exploring num_beans Parameter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-summarizing-the-full-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Summarizing the Full Dataset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-summary-of-model-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Summary of Model Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<div><h1 id="t5-base-t5-large-and-bart-the-battle-of-the-summarization-models">T5-Base, T5-Large, and BART — The Battle of the Summarization Models</h1>
+<p><img alt="transformers" src="../img/transformers.png"></p>
+<h2 id="project-overview">Project Overview</h2>
+<p>This project explores text summarization <em>transformer models</em> T5-Base, T5-Large and BART-CNN and compare their <em>summarization</em> results. Building upon the Reddit NYCApartment dataset that was pulled using the API PRAW, the focus is to evaluate and compare these models when summarizing user comments and posts.
+By experimenting with the pipeline API, fine-tuning parameters, and analyzing different model sizes, we gain insights into the strengths and weaknesses of each approach for summarization tasks.</p>
+<p>✽ The full article can be found on my page on <a href="https://medium.com/@gabya06/t5-vs-bart-the-battle-of-the-summarization-models-c1e6d37e56ca">medium.com</a>.<br>
+✽ The corresponding code can be found in <a href="https://github.com/Gabya06/RentWatchAI/blob/main/post_summarization.ipynb">github</a>.<br></p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#data-viz">Data Visualization &amp; Analysis</a></li>
+<li><a href="#pipelines-for-summarization">Pipelines for Summarization</a>
+    <br>a. <a href="#t5-base">T5-BASE Model</a>
+    <br>b. <a href="#t5-large">T5-LARGE Model</a>
+    <br>c. <a href="#bart">BART-LARGE-CNN Model</a></li>
+<li><a href="#more-control">More Parameter Control</a></li>
+<li><a href="#num_beans">Exploring <code>num_beans</code> Parameter</a></li>
+<li><a href="#summarization">Summarizing the Full Dataset</a></li>
+</ol>
+<p><a name="data-viz"></a></p>
+<h3 id="1-data-visualization-analysis">1. Data Visualization &amp; Analysis</h3>
+<p>Before diving into the summarization models, I first analyzed the Reddit dataset, which contains posts and comments from the r/NYCApartment subreddit. I used histograms to analyze post sentiment distributions and analyzed the top 25% most engaging posts. This helped inform how summarization could be applied effectively.</p>
+<p><a name="pipelines-for-summarization"></a></p>
+<h3 id="2-pipelines-for-summarization">2. Pipelines for Summarization</h3>
+<p>For text summarization, I utilized Hugging Face’s pipeline API, which simplifies the process of using transformer models. Below is an example of how the summarization pipeline is used:</p>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># summarize just one comment using t5-base</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">summarizer</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s2">"summarization"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"t5-base"</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="s2">"t5-base"</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">summary</span> <span class="o">=</span> <span class="n">summarizer</span><span class="p">(</span><span class="n">sample_comment</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>                     <span class="n">do_sample</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Each model has its unique characteristics and produces different summary results. Below is a comparison of the models tested.</p>
+<p><a name="t5-base"></a></p>
+<h3 id="a-t5-base-model">a. T5-BASE Model</h3>
+<div class="language-text highlight"><pre><span></span><code>* **Model size**: 220M parameters
+* **Strengths**: Balanced performance and efficiency
+* **Weaknesses**: Less fluent and less coherent than larger models
+* **Best for**: General text summarization, Q&amp;A, and text generation
+</code></pre></div>
+<p><a name="t5-large"></a></p>
+<h3 id="b-t5-large-model">b. T5-LARGE Model</h3>
+<div class="language-text highlight"><pre><span></span><code>* **Model size**: 770M parameters
+* **Strengths**: More fluent and detailed summaries
+* **Weaknesses**: Requires more computational power
+* **Best for**: Complex summarization tasks, longer documents
+</code></pre></div>
+<p><a name="bart"></a></p>
+<h3 id="c-bart-large-cnn-model">c. BART-LARGE-CNN Model</h3>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span>
+<span class="normal"><a href="#__codelineno-1-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Load summarization pipeline</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">summarizer</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s2">"summarization"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"facebook/bart-large-cnn"</span><span class="p">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Load the tokenizer separately to enable manual truncation</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">BartTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">"facebook/bart-large-cnn"</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">summary</span> <span class="o">=</span> <span class="n">summarizer</span><span class="p">(</span><span class="n">sample_comment</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a>                     <span class="n">do_sample</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li><strong>Model size</strong>: 406M parameters</li>
+<li><strong>Strengths</strong>: High-quality abstractive summaries</li>
+<li><strong>Weaknesses</strong>: Requires fine-tuning for domain-specific texts</li>
+<li><strong>Best for</strong>: News summarization, content condensation</li>
+</ul>
+<h3 id="t5-vs-bart-comparison">T5 vs. BART Comparison:</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>T5</th>
+<th>BART</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model Type</td>
+<td>Encoder-Decoder</td>
+<td>Encoder-Decoder</td>
+</tr>
+<tr>
+<td>Pretraining</td>
+<td>Text-to-Text</td>
+<td>Denoising Autoencoder</td>
+</tr>
+<tr>
+<td>Output Style</td>
+<td>Keeps key phrases</td>
+<td>Rephrases more</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Works well for structured text</td>
+<td>Handles noisy text better</td>
+</tr>
+<tr>
+<td>Ideal Use Case</td>
+<td>Summarizing clean, factual text</td>
+<td>Summarizing complex or opinion-heavy content</td>
+</tr>
+</tbody>
+</table>
+<p><a name="more-control"></a></p>
+<h3 id="3-more-parameter-control">3. More Parameter Control</h3>
+<p>While the <code>pipeline</code> method is very easy and convenient, manually loading the model lets us to better customize summarization results. The <code>generate</code> function allows for additional control over summarization.</p>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span>
+<span class="normal"><a href="#__codelineno-2-8">8</a></span>
+<span class="normal"><a href="#__codelineno-2-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">BartForConditionalGeneration</span><span class="p">,</span> <span class="n">BartTokenizer</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kn">import</span> <span class="nn">torch</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">BartForConditionalGeneration</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">"facebook/bart-large-cnn"</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">BartTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">"facebook/bart-large-cnn"</span><span class="p">)</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">"pt"</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">summary_ids</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">do_sample</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="n">summary_text</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">summary_ids</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+<p><a name="num_beans"></a></p>
+<h3 id="4-exploring-num_beans-parameter">4. Exploring <code>num_beans</code> Parameter</h3>
+<p><code>num_beams</code> controls the number of possible candidate sequences considered during beam search decoding. Setting <code>num_beams=1</code> is the equivalent to <em>greedy search</em> which might be <em>fastest</em> but does not always provide the most coherent result. Higher values improve quality but increase computation time.</p>
+<table>
+<thead>
+<tr>
+<th><code>num_beams</code></th>
+<th>Summary Quality</th>
+<th>Computational Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (greedy)</td>
+<td>Lowest</td>
+<td>Fastest</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Moderate</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>8</td>
+<td>High</td>
+<td>Slower</td>
+</tr>
+</tbody>
+</table>
+<p><a name="summarization"></a></p>
+<h3 id="5-summarizing-the-full-dataset">5. Summarizing the Full Dataset</h3>
+<p>Once the individual summarization tests were complete, I applied the summarization pipeline to the entire dataset to generate summaries for all Reddit comments. This step is important for handling large datasets efficiently.</p>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># Apply summarization to each post's comment</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">df</span><span class="p">[</span><span class="s1">'summary'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'comments'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">summarizer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">do_sample</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'summary_text'</span><span class="p">])</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="final-summary-of-model-performance">Final Summary of Model Performance</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Size</th>
+<th>Strengths</th>
+<th>Weaknesses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>T5-BASE</code></td>
+<td>220M</td>
+<td>Good performance &amp; Efficient</td>
+<td>Less coherent summaries</td>
+</tr>
+<tr>
+<td><code>T5-LARGE</code></td>
+<td>770M</td>
+<td>More detailed output</td>
+<td>Higher computational cost</td>
+</tr>
+<tr>
+<td><code>BART-CNN-LARGE</code></td>
+<td>406M</td>
+<td>Higher quality summaries</td>
+<td>Requires fine-tuning for domain specific tasks</td>
+</tr>
+</tbody>
+</table>
+<p>This project demonstrates how different transformer models can be leveraged for text summarization, showcasing various methods for customizing summarization quality based on the specific needs of a dataset.</p>
+<hr>
+<h3 id="resources">Resources</h3>
+<ul>
+<li><a href="https://huggingface.co/models?pipeline_tag=summarization&amp;p=1&amp;sort=trending&amp;search=t5">Hugging Face</a></li>
+<li><a href="https://towardsdatascience.com/foundations-of-nlp-explained-visually-beam-search-how-it-works-1586b9849a24/">Beam Search</a></li>
+</ul></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -110,7 +110,7 @@ streamlit run app.py
 
 And Voila!
 
-![app_1](img/app_1.png)
+![app_1](img/app_table.png)
 
 
 <a name="streamlit-app"></a>
@@ -176,7 +176,8 @@ right_col.dataframe(top_repairs.style.format(
 Once you're done adding all the bells and whistles to your app, go ahead and run it!
 
 
-![type:video](./videos/app_final_show.mov)
+<!-- ![type:video](./videos/app_final_show.mov) -->
 
+![type:video](./videos/app_demo_video.mov)
 
 
